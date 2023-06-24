@@ -1,27 +1,38 @@
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   vite: {
     vue: {
       reactivityTransform: true,
     },
     optimizeDeps: {},
+    plugins: [],
   },
-  modules: [
-    "@formkit/nuxt",
-
-    "@vueuse/nuxt",
-    [
-      "@pinia/nuxt",
-      {
-        autoImports: ["defineStore"],
-      },
-    ],
-    "@nuxtjs/tailwindcss",
-    "nuxt-icon",
-  ],
-  alias: {},
-
   css: ["@/assets/css/tailwind.css"],
-
-  runtimeConfig: {},
+  modules: [
+    "nuxt-icon",
+    "@nuxthq/ui",
+    "nuxt-headlessui",
+    "@pinia/nuxt",
+    "@formkit/nuxt",
+    "@nuxtjs/supabase",
+    "@vueuse/nuxt",
+  ],
+  formkit: {
+    configFile: "@/formkit.config.ts",
+  },
+  headlessui: {
+    prefix: "Headless",
+  },
+  supabase: {
+    // Options
+  },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+  ssr: false,
+  build: {},
+  devtools: { enabled: true },
 });
