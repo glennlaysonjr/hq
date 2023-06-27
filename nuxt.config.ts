@@ -32,7 +32,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  ssr: false,
+  ssr: true,
   build: {},
   devtools: { enabled: true },
 });

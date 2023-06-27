@@ -1,10 +1,10 @@
 <scrypt setup lang="ts"></scrypt>
 <template>
-  <nav class="flex justify-between items-center">
+  <nav class="flex items-center justify-between">
     <ol class="flex flex-row gap-5">
       <li>Overview</li>
       <li>Fun Projects</li>
-      <li>My Desk</li>
+      <li>Use</li>
     </ol>
   </nav>
 </template>
