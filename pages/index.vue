@@ -1,2 +1,13 @@
 <script setup lang="ts"></script>
-<template></template>
+<template>
+  <div>
+    <CommonCodeEditor
+      :languages="[
+        ['javascript', 'JS'],
+        ['typescript', 'TS'],
+      ]"
+      :line-nums="true"
+      font-size="14px"
+    ></CommonCodeEditor>
+  </div>
+</template>

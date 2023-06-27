@@ -28,6 +28,8 @@
     "@pinia/nuxt": "^0.4.11",
     "@tanstack/vue-query": "^4.29.15",
     "genesis": "link:@formkit/themes/tailwindcss/genesis",
-    "nuxt-headlessui": "^1.1.4"
+    "highlight.js": "^11.8.0",
+    "nuxt-headlessui": "^1.1.4",
+    "simple-code-editor": "^2.0.8"
   }
 }
