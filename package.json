@@ -30,6 +30,8 @@
     "genesis": "link:@formkit/themes/tailwindcss/genesis",
     "highlight.js": "^11.8.0",
     "nuxt-headlessui": "^1.1.4",
-    "simple-code-editor": "^2.0.8"
+    "simple-code-editor": "^2.0.8",
+    "vue": "^3.3.4",
+    "webpack": "^5.88.0"
   }
 }
