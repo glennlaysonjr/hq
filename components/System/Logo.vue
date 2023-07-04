@@ -1,11 +1,5 @@
 <template>
-  <svg
-    width="49"
-    height="44"
-    viewBox="0 0 49 44"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg viewBox="0 0 49 44" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="Group 13">
       <g id="Group 3">
         <path
