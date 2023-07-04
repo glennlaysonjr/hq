@@ -4,12 +4,6 @@
     <article
       class="flex flex-col items-center justify-center min-h-[calc(100vh-65px)]"
     >
-      <CommonToolTip
-        label="testing the entire area to see how long i can make it"
-      >
-        <div class="text-4xl">Testing</div></CommonToolTip
-      >
-
       <h1>Well hey there!</h1>
       <h4>I’m Glenn Layson a full stack web developer & ux/ui designer.</h4>
     </article>
@@ -21,11 +15,18 @@
         <img
           src="@/assets/media/img/gl-memoji-1.png"
           alt="Glenn Layson"
-          class="w-[300px]"
+          class="w-[300px] hidden md:block"
         />
       </aside>
       <article>
-        <h2>About Me.</h2>
+        <div class="flex flex-col items-center gap-2 mb-4 sm:flex-row">
+          <img
+            src="@/assets/media/img/gl-memoji-1.png"
+            alt="Glenn Layson"
+            class="sm:w-[140px] w-[200px] block md:hidden"
+          />
+          <h2>About Me.</h2>
+        </div>
         <p class="mb-2 font-medium">
           Welcome and thank for taking the time to find out more about me. Here
           is a few things that define who I am as a person and worker.

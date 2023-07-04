@@ -13,7 +13,11 @@ module.exports = {
     "./app.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      cursor: {
+        fancy: "url(@/assets/media/cursor.svg), auto",
+      },
+    },
     fontFamily: {
       sans: ["GothamRounded", "sans-serif"],
     },

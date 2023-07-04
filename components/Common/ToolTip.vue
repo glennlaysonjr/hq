@@ -14,13 +14,7 @@ const open = ref(false);
 <template>
   <div @mouseover="open = true" @mouseleave="open = false" class="relative">
     <div
-      class="absolute z-50 p-2 text-xs text-white bg-black rounded-md"
-      :class="{
-        'bottom-[150%]': tipPosition === 'top',
-        'bottom-3': tipPosition === 'bottom',
-        '-left-[10px]': tipPosition === 'left',
-        '-right-[10px]': tipPosition === 'right',
-      }"
+      class="absolute top-0 z-50 p-2 text-xs text-white bg-black rounded-md"
       v-if="open"
       inert
       tip-position="right "

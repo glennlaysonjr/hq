@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { Switch } from "@headlessui/vue";
+import { useMouse } from "@vueuse/core";
+const { x, y, sourceType } = useMouse();
+
 const enabled = ref(false);
 </script>
 <template>
@@ -20,7 +23,7 @@ const enabled = ref(false);
           <OtherWeather class="mr-2" />
           <Switch
             v-model="enabled"
-            class="relative inline-flex items-center justify-center flex-shrink-0 w-10 h-5 rounded-full cursor-pointer group focus:outline-none focus:ring-0"
+            class="relative inline-flex items-center justify-center flex-shrink-0 w-10 h-5 rounded-full cursor-fancy group focus:outline-none focus:ring-0"
           >
             <span
               aria-hidden="true"

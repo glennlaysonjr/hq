@@ -32,6 +32,7 @@
 
 body {
   @apply font-normal text-black bg-white;
+  cursor: url(@/assets/media/cursor.svg) 1 1, auto;
 }
 
 h1 {
@@ -59,4 +60,11 @@ section {
 
 article {
   @apply w-full p-6 max-w-7xl;
+}
+
+/* Selection Styles */
+::selection {
+  background-color: #5722f65e;
+  color: #000;
+  backdrop-filter: blur(8px);
 }

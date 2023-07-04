@@ -1,4 +1,4 @@
-<scrypt setup lang="ts"></scrypt>
+<script setup lang="ts"></script>
 <template>
   <nav class="main-nav">
     <ol>
@@ -8,8 +8,12 @@
       <li>
         <div>Fun Projects</div>
       </li>
-      <li><div>Write Up</div></li>
-      <li><div>Use</div></li>
+      <li>
+        <div>Write Up</div>
+      </li>
+      <li>
+        <div>Use</div>
+      </li>
     </ol>
   </nav>
 </template>
@@ -21,10 +25,10 @@
   @apply flex flex-row gap-5 relative;
 }
 .main-nav ol li {
-  @apply text-gray-500 font-medium flex cursor-pointer h-12 relative;
+  @apply text-gray-500 font-medium flex h-12 relative;
 }
 .main-nav ol li div {
-  @apply h-full flex items-center;
+  @apply !h-full flex items-center;
 }
 .main-nav ol li div:before,
 .main-nav ol li div:after {
