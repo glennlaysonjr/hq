@@ -33,5 +33,6 @@ export default defineNuxtConfig({
     },
   },
   build: {},
+  ssr: true,
   devtools: { enabled: true },
 });

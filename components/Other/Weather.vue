@@ -247,6 +247,6 @@ watch(
 </template>
 <style scoped>
 .weather div svg {
-  @apply fill-[#5822F6]/30 hover:fill-[#5822F6] cursor-pointer w-6 h-6 transition-all duration-500 ease-in-out;
+  @apply fill-[#5822F6]/30 hover:fill-[#5822F6] cursor-fancy w-6 h-6 transition-all duration-500 ease-in-out;
 }
 </style>

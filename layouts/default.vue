@@ -23,7 +23,7 @@ const enabled = ref(false);
           <OtherWeather class="mr-2" />
           <Switch
             v-model="enabled"
-            class="relative inline-flex items-center justify-center flex-shrink-0 w-10 h-5 rounded-full cursor-fancy group focus:outline-none focus:ring-0"
+            class="relative inline-flex items-center justify-center flex-shrink-0 w-10 h-5 rounded-full !cursor-fancy group focus:outline-none focus:ring-0"
           >
             <span
               aria-hidden="true"
