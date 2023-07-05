@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useElementSize } from "@vueuse/core";
 
-const strings = ref([
+const highlights = ref([
   "Vue",
   "Nuxt",
   "Javascript",
@@ -36,15 +36,13 @@ const handleMouseMove = (event) => {
   const mouseX = event.clientX;
   const mouseY = event.clientY;
 
-  const centerX = parentDiv.offsetWidth / 2;
-  const centerY = parentDiv.offsetHeight / 2;
+  const centerX = parentDiv?.offsetWidth / 2;
+  const centerY = parentDiv?.offsetHeight / 2;
 
   const deltaX = (centerX - mouseX) * 0.05;
   const deltaY = (centerY - mouseY) * 0.05;
   tRef.value.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
 };
-
-// function that will anamate location of child divs
 </script>
 <template>
   <section>
@@ -57,23 +55,20 @@ const handleMouseMove = (event) => {
         <h4>I’m Glenn Layson a full stack web developer & ux/ui designer.</h4>
       </div>
       <div
-        class="absolute blur-[.09rem] -z-10 w-full h-[800px] perspective-[100%] opacity-20"
+        class="absolute top-0 blur-[.09rem] -z-10 w-full h-[800px] opacity-20"
         ref="parentRef"
       >
-        <div class="relative" ref="tRef">
+        <div class="relative flex gap-3" v-if="width > 0" ref="tRef">
           <div
-            v-for="string in strings"
-            :key="string"
+            v-for="highlight in highlights"
+            :key="highlight"
             ref="childDivs"
-            class="duration-700 ease-in-out opacity-0 child text-primary"
+            class="relative child text-primary"
             :style="{
-              top: `${Math.floor(Math.random() * (height + Math.random()))}px`,
-              left: `${Math.floor(Math.random() * (width + Math.random()))}px`,
               fontSize: `${Math.floor(Math.random() * 20) + 10}px`,
-              opacity: 1,
             }"
           >
-            {{ string }}
+            {{ highlight }}
           </div>
         </div>
       </div>
@@ -146,15 +141,35 @@ const handleMouseMove = (event) => {
     </article>
   </section>
 </template>
-<style scoped>
+<style scoped lang="scss">
 .about {
   background-image: url();
 }
 
 .child {
   position: absolute;
-  top: 0;
-  left: 0;
-  transform-style: preserve-3d;
+}
+
+@for $i from 1 through 30 {
+  @keyframes particle-animation-#{$i} {
+    100% {
+      transform: translate3d(
+        (random(90) * 1vw),
+        (random(90) * 1vh),
+        (random(100) * 1px)
+      );
+    }
+  }
+
+  .child:nth-child(#{$i}) {
+    animation-delay: -$i * 0.2s;
+    animation: particle-animation-#{$i} 120s infinite;
+    transform: translate3d(
+      (random(80) * 1vw),
+      (random(80) * 1vh),
+      (random(60) * 1px)
+    );
+    $size: random(40) + 20 + px;
+  }
 }
 </style>
