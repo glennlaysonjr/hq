@@ -33,6 +33,17 @@ export default defineNuxtConfig({
     },
   },
   build: {},
+  app: {
+    head: {
+      link: [
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          href: "/favicon.svg", // Replace with the relative path of your SVG favicon file
+        },
+      ],
+    },
+  },
   ssr: true,
   devtools: { enabled: true },
 });
