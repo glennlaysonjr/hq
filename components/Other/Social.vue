@@ -311,7 +311,7 @@
   @apply max-w-fit;
 }
 .social ol li div svg {
-  @apply transition-all block duration-300 ease-in-out cursor-pointer;
+  @apply transition-all block duration-300 ease-in-out cursor-fancy;
 }
 .social ol li div svg:hover {
   transform: translate(0, -10px);

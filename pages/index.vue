@@ -2,42 +2,105 @@
 import { useElementSize } from "@vueuse/core";
 
 const highlights = ref([
-  "Vue",
-  "Nuxt",
-  "Javascript",
-  "Laravel",
-  "PHP",
-  "NestJS",
-  "Prisma",
-  "Tailwind",
-  "NodeJS",
-  "MySQL",
-  "PostgreSQL",
-  "GraphQL",
-  "Figma",
-  "Photoshop",
-  "Illustrator",
-  "InDesign",
-  "TypeScript",
-  "Ubuntu",
-  "Docker",
-  "Netlify",
-  "Vercel",
+  {
+    syntax: "Vue",
+    primary: true,
+  },
+  {
+    syntax: "Nuxt",
+    primary: true,
+  },
+  {
+    syntax: "Tailwind",
+    primary: true,
+  },
+  {
+    syntax: "Javascrypt",
+    primary: false,
+  },
+  {
+    syntax: "Laravel",
+    primary: false,
+  },
+  {
+    syntax: "Prisma",
+    primary: true,
+  },
+  {
+    syntax: "MySQL",
+    primary: false,
+  },
+  {
+    syntax: "NestJS",
+    primary: false,
+  },
+  {
+    syntax: "PostgreSQL",
+    primary: false,
+  },
+  {
+    syntax: "PHP",
+    primary: false,
+  },
+  {
+    syntax: "MySQL",
+    primary: false,
+  },
+  {
+    syntax: "GraphQL",
+    primary: false,
+  },
+  {
+    syntax: "Figma",
+    primary: true,
+  },
+  {
+    syntax: "Photoshop",
+    primary: false,
+  },
+  {
+    syntax: "Illustrator",
+    primary: false,
+  },
+  {
+    syntax: "InDesign",
+    primary: false,
+  },
+  {
+    syntax: "TypeScript",
+    primary: false,
+  },
+  {
+    syntax: "Ubuntu",
+    primary: false,
+  },
+  {
+    syntax: "Docker",
+    primary: false,
+  },
+  {
+    syntax: "Netlify",
+    primary: false,
+  },
+  {
+    syntax: "Vercel",
+    primary: false,
+  },
 ]);
 
-const parentRef = ref(null);
-const childDivs = ref([]);
+const heroRef = ref(null);
+const syntaxDivs = ref([]);
 const tRef = ref(null);
 
-const { width, height } = useElementSize(parentRef);
+const { width, height } = useElementSize(heroRef);
 
 const handleMouseMove = (event) => {
-  const parentDiv = parentRef.value;
+  const heroDiv = heroRef.value;
   const mouseX = event.clientX;
   const mouseY = event.clientY;
 
-  const centerX = parentDiv?.offsetWidth / 2;
-  const centerY = parentDiv?.offsetHeight / 2;
+  const centerX = heroDiv?.offsetWidth / 2;
+  const centerY = heroDiv?.offsetHeight / 2;
 
   const deltaX = (centerX - mouseX) * 0.05;
   const deltaY = (centerY - mouseY) * 0.05;
@@ -56,19 +119,17 @@ const handleMouseMove = (event) => {
       </div>
       <div
         class="absolute top-0 blur-[.09rem] -z-10 w-full h-[800px] opacity-20"
-        ref="parentRef"
+        ref="heroRef"
       >
         <div class="relative flex gap-3" v-if="width > 0" ref="tRef">
           <div
-            v-for="highlight in highlights"
-            :key="highlight"
-            ref="childDivs"
-            class="relative child text-primary"
-            :style="{
-              fontSize: `${Math.floor(Math.random() * 20) + 10}px`,
-            }"
+            v-for="(highlight, index) in highlights"
+            :key="index"
+            ref="syntaxDivs"
+            class="relative syntax text-primary"
+            :class="highlight.primary ? '!text-3xl' : ''"
           >
-            {{ highlight }}
+            {{ highlight.syntax }}
           </div>
         </div>
       </div>
@@ -146,30 +207,46 @@ const handleMouseMove = (event) => {
   background-image: url();
 }
 
-.child {
+.syntax {
   position: absolute;
 }
 
 @for $i from 1 through 30 {
   @keyframes particle-animation-#{$i} {
-    100% {
+    0% {
       transform: translate3d(
-        (random(90) * 1vw),
-        (random(90) * 1vh),
+        (random(80) * 1vw),
+        (random(80) * 1vh),
         (random(100) * 1px)
       );
+      opacity: 0;
+    }
+    3% {
+      opacity: 1;
+    }
+    98% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(
+        (random(80) * 1vw),
+        (random(80) * 1vh),
+        (random(100) * 1px)
+      );
+      opacity: 0;
     }
   }
 
-  .child:nth-child(#{$i}) {
-    animation-delay: -$i * 0.2s;
+  .syntax:nth-child(#{$i}) {
+    animation-delay: -$i * 0.1s;
     animation: particle-animation-#{$i} 120s infinite;
     transform: translate3d(
       (random(80) * 1vw),
       (random(80) * 1vh),
       (random(60) * 1px)
     );
-    $size: random(40) + 20 + px;
+    $size: random(20) + 8 + px;
+    font-size: $size;
   }
 }
 </style>
