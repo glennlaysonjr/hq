@@ -15,7 +15,7 @@ export async function getPage(id) {
   });
   return page;
 }
-
+//Create Page
 export async function createPage(data) {
   let result = null;
   result = data;
