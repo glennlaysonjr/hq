@@ -9,7 +9,7 @@ module.exports = {
     "./plugins/**/*.{js,ts}",
     "./nuxt.config.{js,ts}",
     "./formkit.config.ts",
-    "./node_modules/@formkit/themes/dist/tailwindcss/genesis/index.cjs",
+    "./theme.formkit.ts",
     "./app.vue",
   ],
   theme: {

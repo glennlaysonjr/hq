@@ -203,15 +203,12 @@ const handleMouseMove = (event) => {
   </section>
 </template>
 <style scoped lang="scss">
-.about {
-  background-image: url();
-}
-
+/* Hero Animation */
 .syntax {
   position: absolute;
 }
 
-@for $i from 1 through 30 {
+@for $i from 1 through 35 {
   @keyframes particle-animation-#{$i} {
     0% {
       transform: translate3d(
@@ -242,7 +239,7 @@ const handleMouseMove = (event) => {
     animation: particle-animation-#{$i} 120s infinite;
     transform: translate3d(
       (random(80) * 1vw),
-      (random(80) * 1vh),
+      (random(85) * 1vh),
       (random(60) * 1px)
     );
     $size: random(20) + 8 + px;

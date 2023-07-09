@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
   ],
   formkit: {
-    configFile: "@/formkit.config.ts",
+    configFile: "./formkit.config.ts",
   },
   headlessui: {
     prefix: "Headless",

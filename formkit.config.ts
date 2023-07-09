@@ -1,9 +1,9 @@
 // formkit.config.js
 import { generateClasses } from "@formkit/themes";
 import { genesisIcons } from "@formkit/icons";
-import genesis from "@formkit/themes/tailwindcss/genesis";
 import { en } from "@formkit/i18n";
 import { DefaultConfigOptions } from "@formkit/vue";
+import customTheme from "@/theme.formkit";
 
 const config: DefaultConfigOptions = {
   locales: { en },
@@ -12,7 +12,7 @@ const config: DefaultConfigOptions = {
     ...genesisIcons,
   },
   config: {
-    classes: generateClasses(genesis),
+    classes: generateClasses(customTheme),
   },
 };
 
