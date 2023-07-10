@@ -19,6 +19,7 @@ const selectedLanguage = computed({
 
 <template>
   <node-view-wrapper class="code-block">
+    <!-- Change to formkit -->
     <select contenteditable="false" v-model="selectedLanguage">
       <option :value="null">auto</option>
       <option disabled>—</option>
