@@ -38,9 +38,15 @@ dependencies:
   '@tanstack/vue-query':
     specifier: ^4.29.15
     version: 4.29.20(vue@3.3.4)
+  '@tiptap/core':
+    specifier: ^2.0.3
+    version: 2.0.3(@tiptap/pm@2.0.3)
   '@tiptap/extension-code':
     specifier: ^2.0.3
     version: 2.0.3(@tiptap/core@2.0.3)
+  '@tiptap/extension-code-block':
+    specifier: ^2.0.3
+    version: 2.0.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
   '@tiptap/extension-code-block-lowlight':
     specifier: ^2.0.3
     version: 2.0.3(@tiptap/core@2.0.3)(@tiptap/extension-code-block@2.0.3)(@tiptap/pm@2.0.3)
