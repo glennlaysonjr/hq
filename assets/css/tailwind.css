@@ -68,3 +68,7 @@ article {
   color: #000;
   backdrop-filter: blur(8px);
 }
+
+.tippy-box {
+  @apply px-3 py-1 text-xs font-medium text-white bg-black rounded-full;
+}

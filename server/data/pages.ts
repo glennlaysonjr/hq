@@ -8,12 +8,20 @@ export async function getPages() {
 }
 
 export async function getPage(id) {
+  if (!id) {
+    const validationError = createError({
+      statusCode: 422,
+      statusMessage: "Unprocessable Entity",
+      data: "name required",
+    });
+    return { validationError, status: 422 };
+  }
   const page = await prisma.pages.findUnique({
     where: {
       id: String(id),
     },
   });
-  return page;
+  return { page, status: 200 };
 }
 //Create Page
 export async function createPage(data) {
