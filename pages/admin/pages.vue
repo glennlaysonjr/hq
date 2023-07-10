@@ -64,308 +64,314 @@ onBeforeUnmount(() => {
         </FormKit>
       </div>
       <div class="px-5 max-w-[1200px]">
-        <div
-          class="flex flex-wrap justify-start p-2 space-x-1 border rounded-t-xl dark:border-zinc-700"
-        >
-          <button
-            class="editor-button"
-            v-tippy="{ content: 'Bold', placement: 'bottom' }"
-            @click="editor.chain().focus().toggleBold().run()"
+        <ClientOnly>
+          <div
+            class="flex flex-wrap justify-start p-2 space-x-1 border rounded-t-xl dark:border-zinc-700"
           >
-            <Icon name="material-symbols:format-bold-rounded" />
-          </button>
-          <button
-            class="editor-button"
-            v-tippy="{ content: 'Italic', placement: 'bottom' }"
-            @click="editor.chain().focus().toggleItalic().run()"
-          >
-            <Icon name="material-symbols:format-italic-rounded" />
-          </button>
-          <button
-            class="editor-button"
-            v-tippy="{ content: 'Strike', placement: 'bottom' }"
-            @click="editor.chain().focus().toggleStrike().run()"
-          >
-            <Icon name="material-symbols:format-strikethrough-rounded" />
-          </button>
-          <button
-            class="editor-button"
-            v-tippy="{ content: 'Code Block', placement: 'bottom' }"
-            @click="editor.chain().focus().toggleCodeBlock().run()"
-          >
-            <Icon name="material-symbols:code-blocks-rounded" />
-          </button>
-          <button
-            class="editor-button"
-            v-tippy="{ content: 'Paragraph', placement: 'bottom' }"
-            @click="editor.chain().focus().setParagraph().run()"
-          >
-            <Icon name="material-symbols:format-paragraph-rounded" />
-          </button>
-          <UPopover>
             <button
               class="editor-button"
-              v-tippy="{ content: 'Headings', placement: 'bottom' }"
+              v-tippy="{ content: 'Bold', placement: 'bottom' }"
+              @click="editor.chain().focus().toggleBold().run()"
             >
-              <Icon name="material-symbols:format-h1-rounded" />
+              <Icon name="material-symbols:format-bold-rounded" />
             </button>
-
-            <template #panel>
-              <!-- Content -->
+            <button
+              class="editor-button"
+              v-tippy="{ content: 'Italic', placement: 'bottom' }"
+              @click="editor.chain().focus().toggleItalic().run()"
+            >
+              <Icon name="material-symbols:format-italic-rounded" />
+            </button>
+            <button
+              class="editor-button"
+              v-tippy="{ content: 'Strike', placement: 'bottom' }"
+              @click="editor.chain().focus().toggleStrike().run()"
+            >
+              <Icon name="material-symbols:format-strikethrough-rounded" />
+            </button>
+            <button
+              class="editor-button"
+              v-tippy="{ content: 'Code Block', placement: 'bottom' }"
+              @click="editor.chain().focus().toggleCodeBlock().run()"
+            >
+              <Icon name="material-symbols:code-blocks-rounded" />
+            </button>
+            <button
+              class="editor-button"
+              v-tippy="{ content: 'Paragraph', placement: 'bottom' }"
+              @click="editor.chain().focus().setParagraph().run()"
+            >
+              <Icon name="material-symbols:format-paragraph-rounded" />
+            </button>
+            <UPopover>
               <button
-                class="editor-button !text-[#EAE5FD] !text-lg"
-                v-tippy="{ content: 'Heading 1', placement: 'bottom' }"
-                @click="
-                  editor.chain().focus().toggleHeading({ level: 1 }).run()
-                "
+                class="editor-button"
+                v-tippy="{ content: 'Headings', placement: 'bottom' }"
               >
                 <Icon name="material-symbols:format-h1-rounded" />
               </button>
 
-              <button
-                v-tippy="{ content: 'Heading 2', placement: 'bottom' }"
-                class="editor-button !text-[#EAE5FD] !text-lg"
-                @click="
-                  editor.chain().focus().toggleHeading({ level: 2 }).run()
-                "
-              >
-                <Icon name="material-symbols:format-h2-rounded" />
-              </button>
+              <template #panel>
+                <!-- Content -->
+                <button
+                  class="editor-button !text-[#EAE5FD] !text-lg"
+                  v-tippy="{ content: 'Heading 1', placement: 'bottom' }"
+                  @click="
+                    editor.chain().focus().toggleHeading({ level: 1 }).run()
+                  "
+                >
+                  <Icon name="material-symbols:format-h1-rounded" />
+                </button>
 
-              <button
-                v-tippy="{ content: 'Heading 3', placement: 'bottom' }"
-                class="editor-button !text-[#EAE5FD] !text-lg"
-                @click="
-                  editor.chain().focus().toggleHeading({ level: 3 }).run()
-                "
-              >
-                <Icon name="material-symbols:format-h3-rounded" />
-              </button>
-            </template>
-          </UPopover>
+                <button
+                  v-tippy="{ content: 'Heading 2', placement: 'bottom' }"
+                  class="editor-button !text-[#EAE5FD] !text-lg"
+                  @click="
+                    editor.chain().focus().toggleHeading({ level: 2 }).run()
+                  "
+                >
+                  <Icon name="material-symbols:format-h2-rounded" />
+                </button>
 
-          <button
-            class="editor-button"
-            v-tippy="{ content: 'Bullet List', placement: 'bottom' }"
-            @click="editor.chain().focus().toggleBulletList().run()"
-          >
-            <Icon name="material-symbols:format-list-bulleted-rounded" />
-          </button>
+                <button
+                  v-tippy="{ content: 'Heading 3', placement: 'bottom' }"
+                  class="editor-button !text-[#EAE5FD] !text-lg"
+                  @click="
+                    editor.chain().focus().toggleHeading({ level: 3 }).run()
+                  "
+                >
+                  <Icon name="material-symbols:format-h3-rounded" />
+                </button>
+              </template>
+            </UPopover>
 
-          <button
-            class="editor-button"
-            v-tippy="{ content: 'Number List', placement: 'bottom' }"
-            @click="editor.chain().focus().toggleOrderedList().run()"
-          >
-            <Icon name="material-symbols:format-list-numbered-rounded" />
-          </button>
-
-          <button
-            class="editor-button"
-            v-tippy="{ content: 'Quote Block', placement: 'bottom' }"
-            @click="editor.chain().focus().toggleBlockquote().run()"
-          >
-            <Icon name="material-symbols:format-quote-rounded" />
-          </button>
-
-          <button
-            class="editor-button"
-            v-tippy="{ content: 'Line Brake', placement: 'bottom' }"
-            @click="editor.chain().focus().setHorizontalRule().run()"
-          >
-            <Icon name="material-symbols:horizontal-rule-rounded" />
-          </button>
-          <UPopover>
             <button
               class="editor-button"
-              v-tippy="{ content: 'Highlight', placement: 'bottom' }"
+              v-tippy="{ content: 'Bullet List', placement: 'bottom' }"
+              @click="editor.chain().focus().toggleBulletList().run()"
             >
-              <Icon name="material-symbols:ink-highlighter-rounded" />
+              <Icon name="material-symbols:format-list-bulleted-rounded" />
             </button>
-            <template #panel>
-              <div
-                class="flex flex-wrap justify-start p-2 space-x-1 border border-t-0 dark:border-zinc-700"
-              >
-                <button
-                  @click="
-                    editor
-                      .chain()
-                      .focus()
-                      .toggleHighlight({ color: '#ffc078' })
-                      .run()
-                  "
-                >
-                  <div class="w-6 h-6 rounded-full bg-[#ffc078]"></div>
-                </button>
-                <button
-                  @click="
-                    editor
-                      .chain()
-                      .focus()
-                      .toggleHighlight({ color: '#fff350' })
-                      .run()
-                  "
-                >
-                  <div class="w-6 h-6 rounded-full bg-[#fff350]"></div>
-                </button>
-                <button
-                  @click="
-                    editor
-                      .chain()
-                      .focus()
-                      .toggleHighlight({ color: '#8ce99a' })
-                      .run()
-                  "
-                >
-                  <div class="w-6 h-6 rounded-full bg-[#8ce99a]"></div>
-                </button>
-                <button
-                  @click="
-                    editor
-                      .chain()
-                      .focus()
-                      .toggleHighlight({ color: '#74c0fc' })
-                      .run()
-                  "
-                >
-                  <div class="w-6 h-6 rounded-full bg-[#74c0fc]"></div>
-                </button>
-                <button
-                  @click="
-                    editor
-                      .chain()
-                      .focus()
-                      .toggleHighlight({ color: '#b197fc' })
-                      .run()
-                  "
-                >
-                  <div class="w-6 h-6 rounded-full bg-[#b197fc]"></div>
-                </button>
-                <button
-                  @click="
-                    editor
-                      .chain()
-                      .focus()
-                      .toggleHighlight({ color: '#f8bbd0' })
-                      .run()
-                  "
-                >
-                  <div class="w-6 h-6 rounded-full bg-[#f8bbd0]"></div>
-                </button>
-                <button
-                  @click="
-                    editor
-                      .chain()
-                      .focus()
-                      .toggleHighlight({ color: 'red' })
-                      .run()
-                  "
-                >
-                  <div class="w-6 h-6 rounded-full bg-[red]"></div>
-                </button>
-                <button
-                  @click="
-                    editor
-                      .chain()
-                      .focus()
-                      .toggleHighlight({ color: '#e0e0e0' })
-                      .run()
-                  "
-                >
-                  <div class="w-6 h-6 rounded-full bg-[#e0e0e0]"></div>
-                </button>
 
-                <button
-                  @click="
-                    editor
-                      .chain()
-                      .focus()
-                      .toggleHighlight({ color: 'transparent' })
-                      .run()
-                  "
+            <button
+              class="editor-button"
+              v-tippy="{ content: 'Number List', placement: 'bottom' }"
+              @click="editor.chain().focus().toggleOrderedList().run()"
+            >
+              <Icon name="material-symbols:format-list-numbered-rounded" />
+            </button>
+
+            <button
+              class="editor-button"
+              v-tippy="{ content: 'Quote Block', placement: 'bottom' }"
+              @click="editor.chain().focus().toggleBlockquote().run()"
+            >
+              <Icon name="material-symbols:format-quote-rounded" />
+            </button>
+
+            <button
+              class="editor-button"
+              v-tippy="{ content: 'Line Brake', placement: 'bottom' }"
+              @click="editor.chain().focus().setHorizontalRule().run()"
+            >
+              <Icon name="material-symbols:horizontal-rule-rounded" />
+            </button>
+            <UPopover>
+              <button
+                class="editor-button"
+                v-tippy="{ content: 'Highlight', placement: 'bottom' }"
+              >
+                <Icon name="material-symbols:ink-highlighter-rounded" />
+              </button>
+              <template #panel>
+                <div
+                  class="flex flex-wrap justify-start p-2 space-x-1 border border-t-0 dark:border-zinc-700"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-6 h-6"
-                    viewBox="0 0 24 24"
+                  <button
+                    @click="
+                      editor
+                        .chain()
+                        .focus()
+                        .toggleHighlight({ color: '#ffc078' })
+                        .run()
+                    "
                   >
-                    <path
-                      fill="currentColor"
-                      d="M7 12c0 .55.45 1 1 1h8c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1zm5-10C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </template>
-          </UPopover>
-          <UPopover>
-            <button
-              class="editor-button"
-              v-tippy="{ content: 'Alignment', placement: 'bottom' }"
-            >
-              <Icon name="material-symbols:align-horizontal-left-rounded" />
-            </button>
+                    <div class="w-6 h-6 rounded-full bg-[#ffc078]"></div>
+                  </button>
+                  <button
+                    @click="
+                      editor
+                        .chain()
+                        .focus()
+                        .toggleHighlight({ color: '#fff350' })
+                        .run()
+                    "
+                  >
+                    <div class="w-6 h-6 rounded-full bg-[#fff350]"></div>
+                  </button>
+                  <button
+                    @click="
+                      editor
+                        .chain()
+                        .focus()
+                        .toggleHighlight({ color: '#8ce99a' })
+                        .run()
+                    "
+                  >
+                    <div class="w-6 h-6 rounded-full bg-[#8ce99a]"></div>
+                  </button>
+                  <button
+                    @click="
+                      editor
+                        .chain()
+                        .focus()
+                        .toggleHighlight({ color: '#74c0fc' })
+                        .run()
+                    "
+                  >
+                    <div class="w-6 h-6 rounded-full bg-[#74c0fc]"></div>
+                  </button>
+                  <button
+                    @click="
+                      editor
+                        .chain()
+                        .focus()
+                        .toggleHighlight({ color: '#b197fc' })
+                        .run()
+                    "
+                  >
+                    <div class="w-6 h-6 rounded-full bg-[#b197fc]"></div>
+                  </button>
+                  <button
+                    @click="
+                      editor
+                        .chain()
+                        .focus()
+                        .toggleHighlight({ color: '#f8bbd0' })
+                        .run()
+                    "
+                  >
+                    <div class="w-6 h-6 rounded-full bg-[#f8bbd0]"></div>
+                  </button>
+                  <button
+                    @click="
+                      editor
+                        .chain()
+                        .focus()
+                        .toggleHighlight({ color: 'red' })
+                        .run()
+                    "
+                  >
+                    <div class="w-6 h-6 rounded-full bg-[red]"></div>
+                  </button>
+                  <button
+                    @click="
+                      editor
+                        .chain()
+                        .focus()
+                        .toggleHighlight({ color: '#e0e0e0' })
+                        .run()
+                    "
+                  >
+                    <div class="w-6 h-6 rounded-full bg-[#e0e0e0]"></div>
+                  </button>
 
-            <template #panel>
-              <!-- Content -->
+                  <button
+                    @click="
+                      editor
+                        .chain()
+                        .focus()
+                        .toggleHighlight({ color: 'transparent' })
+                        .run()
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-6 h-6"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M7 12c0 .55.45 1 1 1h8c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1zm5-10C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </template>
+            </UPopover>
+            <UPopover>
               <button
-                class="editor-button !text-[#EAE5FD] !text-lg"
-                v-tippy="{ content: 'Left Align', placement: 'bottom' }"
-                @click="editor.chain().focus().setTextAlign('left').run()"
+                class="editor-button"
+                v-tippy="{ content: 'Alignment', placement: 'bottom' }"
               >
                 <Icon name="material-symbols:align-horizontal-left-rounded" />
               </button>
-              <button
-                v-tippy="{ content: 'Center Align', placement: 'bottom' }"
-                class="editor-button !text-[#EAE5FD] !text-lg"
-                @click="editor.chain().focus().setTextAlign('center').run()"
-              >
-                <Icon name="material-symbols:align-horizontal-center-rounded" />
-              </button>
-              <button
-                v-tippy="{ content: 'Right Align', placement: 'bottom' }"
-                class="editor-button !text-[#EAE5FD] !text-lg"
-                @click="editor.chain().focus().setTextAlign('right').run()"
-              >
-                <Icon name="material-symbols:align-horizontal-right-rounded" />
-              </button>
 
-              <button
-                v-tippy="{ content: 'Justify', placement: 'bottom' }"
-                class="editor-button !text-[#EAE5FD] !text-lg"
-                @click="editor.chain().focus().setTextAlign('justify').run()"
-              >
-                <Icon name="material-symbols:format-align-justify-rounded" />
-              </button>
-            </template>
-          </UPopover>
+              <template #panel>
+                <!-- Content -->
+                <button
+                  class="editor-button !text-[#EAE5FD] !text-lg"
+                  v-tippy="{ content: 'Left Align', placement: 'bottom' }"
+                  @click="editor.chain().focus().setTextAlign('left').run()"
+                >
+                  <Icon name="material-symbols:align-horizontal-left-rounded" />
+                </button>
+                <button
+                  v-tippy="{ content: 'Center Align', placement: 'bottom' }"
+                  class="editor-button !text-[#EAE5FD] !text-lg"
+                  @click="editor.chain().focus().setTextAlign('center').run()"
+                >
+                  <Icon
+                    name="material-symbols:align-horizontal-center-rounded"
+                  />
+                </button>
+                <button
+                  v-tippy="{ content: 'Right Align', placement: 'bottom' }"
+                  class="editor-button !text-[#EAE5FD] !text-lg"
+                  @click="editor.chain().focus().setTextAlign('right').run()"
+                >
+                  <Icon
+                    name="material-symbols:align-horizontal-right-rounded"
+                  />
+                </button>
 
-          <UTooltip text="Undo">
-            <button
-              class="editor-button"
-              v-tippy="{ content: 'Undo', placement: 'bottom' }"
-              @click="editor.chain().focus().undo().run()"
-            >
-              <Icon name="material-symbols:undo-rounded" />
-            </button>
-          </UTooltip>
-          <UTooltip text="Redo">
-            <button
-              class="editor-button"
-              v-tippy="{ content: 'Redo', placement: 'bottom' }"
-              @click="editor.chain().focus().redo().run()"
-            >
-              <Icon name="material-symbols:redo-rounded" />
-            </button>
-          </UTooltip>
-        </div>
-        <div class="border border-t-0 border-zinc-700 bg-gpurple/10">
-          <EditorContent
-            v-model="content"
-            :editor="editor"
-            class="p-1 !space-y-1"
-          />
-        </div>
+                <button
+                  v-tippy="{ content: 'Justify', placement: 'bottom' }"
+                  class="editor-button !text-[#EAE5FD] !text-lg"
+                  @click="editor.chain().focus().setTextAlign('justify').run()"
+                >
+                  <Icon name="material-symbols:format-align-justify-rounded" />
+                </button>
+              </template>
+            </UPopover>
+
+            <UTooltip text="Undo">
+              <button
+                class="editor-button"
+                v-tippy="{ content: 'Undo', placement: 'bottom' }"
+                @click="editor.chain().focus().undo().run()"
+              >
+                <Icon name="material-symbols:undo-rounded" />
+              </button>
+            </UTooltip>
+            <UTooltip text="Redo">
+              <button
+                class="editor-button"
+                v-tippy="{ content: 'Redo', placement: 'bottom' }"
+                @click="editor.chain().focus().redo().run()"
+              >
+                <Icon name="material-symbols:redo-rounded" />
+              </button>
+            </UTooltip>
+          </div>
+          <div class="border border-t-0 border-zinc-700 bg-gpurple/10">
+            <EditorContent
+              v-model="content"
+              :editor="editor"
+              class="p-1 !space-y-1"
+            />
+          </div>
+        </ClientOnly>
       </div>
       {{ content }}
     </main>
