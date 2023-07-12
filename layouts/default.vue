@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Switch } from "@headlessui/vue";
 import { useMouse } from "@vueuse/core";
+import Switch from "components/Common/Switch.vue";
 const { x, y, sourceType } = useMouse();
 
 const enabled = ref(false);
@@ -21,25 +21,7 @@ const enabled = ref(false);
         </div>
         <div class="flex items-center justify-center">
           <OtherWeather class="mr-2" />
-          <Switch
-            v-model="enabled"
-            class="relative inline-flex items-center justify-center flex-shrink-0 w-10 h-5 rounded-full !cursor-fancy group focus:outline-none focus:ring-0"
-          >
-            <span
-              aria-hidden="true"
-              :class="[
-                enabled ? 'bg-gpurple' : 'bg-white',
-                'pointer-events-none absolute mx-auto h-4 w-9 rounded-full transition-colors duration-200 ease-in-out',
-              ]"
-            />
-            <span
-              aria-hidden="true"
-              :class="[
-                enabled ? 'translate-x-5' : 'translate-x-0',
-                'pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out',
-              ]"
-            />
-          </Switch>
+          <CommonSwitch v-model="enabled" />
         </div>
       </div>
     </header>

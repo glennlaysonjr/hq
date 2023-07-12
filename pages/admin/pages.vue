@@ -22,7 +22,37 @@ lowlight.registerLanguage("php", php);
 const content = ref<String>("");
 const showHighlight = ref<Boolean>(false);
 
+const coverImg = ref();
+interface Form {
+  title: String;
+  slug: String;
+  content: {
+    cover_img: String;
+    body: String;
+  };
+  description?: String;
+  published: boolean;
+}
+
+const form = ref<Form>({
+  title: "",
+  slug: "",
+  content: {
+    cover_img: "",
+    body: "",
+  },
+  description: "",
+  published: false,
+});
+
 const editor: Editor | any = ref();
+
+watch(
+  () => content.value,
+  (value) => {
+    form.value.content.body = value;
+  },
+);
 
 onMounted(() => {
   editor.value = new Editor({
@@ -51,16 +81,42 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div id="app" class="flex flex-col justify-end">
-    <main>
-      <div class="flex px-5 max-w-[1200px]">
-        <FormKit type="text" label="Title" />
-        <FormKit type="text" label="Slug">
-          <template #prefix>
-            <span class="text-sm text-gray-500 dark:text-gray-400">
-              https://glennlayson.com/
-            </span>
-          </template>
+  <div class="">
+    <main class="flex flex-col justify-center w-full">
+      <div class="flex flex-col px-5 max-w-[1200px]">
+        <FormKit type="form" :actions="false">
+          <div>
+            <FormKit
+              type="text"
+              v-model="form.title"
+              validation="requried"
+              placeholder="Page Title"
+              inner-class="!ring-0 bg-gpurple/10 !text-3xl"
+              input-class="!text-3xl !font-medium min-h-[4rem]"
+            />
+          </div>
+          <div class="flex flex-row gap-3">
+            <FormKit
+              type="text"
+              v-model="form.slug"
+              validation="requried"
+              placeholder="your-slug-here"
+            />
+            <CommonSwitch v-model:toggle="form.published" label="Published" />
+          </div>
+          <div class="flex flex-col">
+            <FormKit
+              type="text"
+              v-model="form.description"
+              placeholder="Description"
+            />
+            <FormKit
+              type="file"
+              v-model="coverImg"
+              validation="requried"
+              placeholder="Set Cover Image"
+            />
+          </div>
         </FormKit>
       </div>
       <div class="px-5 max-w-[1200px]">
@@ -368,7 +424,7 @@ onBeforeUnmount(() => {
             <EditorContent
               v-model="content"
               :editor="editor"
-              class="p-1 !space-y-1"
+              class="p-1 !space-y-1 cursor-text"
             />
           </div>
         </ClientOnly>

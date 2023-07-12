@@ -4,7 +4,7 @@
 export default {
   // Global styles apply to _all_ inputs with matching section keys
   global: {
-    fieldset: "max-w-md border border-gray-400 rounded px-2 pb-1",
+    fieldset: " border border-gray-400 rounded px-2 pb-1",
     help: "text-xs text-gray-500",
     inner:
       "formkit-disabled:bg-gray-200 formkit-disabled:cursor-not-allowed formkit-disabled:pointer-events-none",
@@ -48,7 +48,7 @@ export default {
     emptyMessageInner:
       "flex items-center justify-center text-sm p-2 text-center w-full text-gray-500 [&>span]:mr-3 [&>span]:ml-0",
     inner:
-      "max-w-md relative flex ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 rounded mb-1 formkit-disabled:focus-within:ring-gray-400 formkit-disabled:focus-within:ring-1 [&>span:first-child]:focus-within:text-blue-500",
+      " relative flex ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 rounded mb-1 formkit-disabled:focus-within:ring-gray-400 formkit-disabled:focus-within:ring-1 [&>span:first-child]:focus-within:text-blue-500",
     input: "w-full px-3 py-2",
     listbox: "bg-white shadow-lg rounded overflow-hidden",
     listboxButton: "flex w-12 self-stretch justify-center mx-auto",
@@ -67,13 +67,13 @@ export default {
   },
   "family:text": {
     inner:
-      "flex items-center max-w-md ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 [&>label:first-child]:focus-within:text-blue-500 rounded mb-1",
+      "flex items-center  ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 [&>label:first-child]:focus-within:text-blue-500 rounded mb-1",
     input:
       "w-full px-3 py-2 border-none text-base text-gray-700 placeholder-gray-400",
   },
   "family:date": {
     inner:
-      "flex items-center max-w-md ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 [&>label:first-child]:focus-within:text-blue-500 rounded mb-1",
+      "flex items-center  ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 [&>label:first-child]:focus-within:text-blue-500 rounded mb-1",
     input: "w-full px-3 py-2 border-none text-gray-700 placeholder-gray-400",
   },
 
@@ -94,8 +94,7 @@ export default {
     fileRemove:
       "relative z-[2] ml-auto text-[0px] hover:text-red-500 pl-2 peer-data-[has-multiple=true]:text-sm peer-data-[has-multiple=true]:text-blue-500 peer-data-[has-multiple=true]:ml-3 peer-data-[has-multiple=true]:mb-2 formkit-multiple:bottom-[0.15em] formkit-multiple:pl-0 formkit-multiple:ml-0 formkit-multiple:left-[1em] formkit-multiple:formkit-prefix-icon:left-[3.75em]",
     fileRemoveIcon: "block text-base w-3 relative z-[2]",
-    inner:
-      "relative max-w-md cursor-pointer formkit-multiple:[&>button]:absolute",
+    inner: "relative  cursor-pointer formkit-multiple:[&>button]:absolute",
     input:
       "cursor-pointer text-transparent absolute top-0 right-0 left-0 bottom-0 opacity-0 z-[2]",
     noFiles: "flex w-full items-center px-3 py-2 text-gray-400",
@@ -106,7 +105,7 @@ export default {
     decoratorIcon: "w-5 p-[5px]",
   },
   range: {
-    inner: "$reset flex items-center max-w-md",
+    inner: "$reset flex items-center ",
     input: "$reset w-full mb-1 h-2 p-0 rounded-full",
     prefixIcon:
       "$reset w-4 mr-1 flex self-stretch grow-0 shrink-0 [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto",
@@ -115,7 +114,7 @@ export default {
   },
   select: {
     inner:
-      "flex relative max-w-md items-center rounded mb-1 ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 [&>span:first-child]:focus-within:text-blue-500",
+      "flex relative  items-center rounded mb-1 ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 [&>span:first-child]:focus-within:text-blue-500",
     input:
       'w-full pl-3 pr-8 py-2 border-none text-base text-gray-700 placeholder-gray-400 formkit-multiple:p-0 data-[placeholder="true"]:text-gray-400 formkit-multiple:data-[placeholder="true"]:text-inherit',
     selectIcon:
@@ -124,7 +123,7 @@ export default {
   },
   textarea: {
     inner:
-      "flex max-w-md rounded mb-1 ring-1 ring-gray-400 focus-within:ring-blue-500 [&>label:first-child]:focus-within:text-blue-500",
+      "flex  rounded mb-1 ring-1 ring-gray-400 focus-within:ring-blue-500 [&>label:first-child]:focus-within:text-blue-500",
     input:
       "block w-full h-32 px-3 py-3 border-none text-base text-gray-700 placeholder-gray-400 focus:shadow-outline",
   },
@@ -149,38 +148,38 @@ export default {
     overlayPlaceholder: "text-gray-400",
     months: "flex flex-wrap",
     month: `
-        flex items-center justify-center
-        w-[calc(33%_-_1em)] m-2 p-2 rounded-md
-        bg-gray-200
-        aria-selected:bg-blue-500 aria-selected:text-white
-        focus:outline focus:outline-2 focus:outline-blue-500 focus:outline-offset-2 focus:bg-white focus:text-black
-        data-[is-extra=true]:opacity-25
-        formkit-disabled:opacity-50 formkit-disabled:cursor-default formkit-disabled:pointer-events-none
-      `,
+      flex items-center justify-center
+      w-[calc(33%_-_1em)] m-2 p-2 rounded-md
+      bg-gray-200
+      aria-selected:bg-blue-500 aria-selected:text-white
+      focus:outline focus:outline-2 focus:outline-blue-500 focus:outline-offset-2 focus:bg-white focus:text-black
+      data-[is-extra=true]:opacity-25
+      formkit-disabled:opacity-50 formkit-disabled:cursor-default formkit-disabled:pointer-events-none
+    `,
     yearsHeader: "flex items-center justify-center col-start-2 col-end-2",
     years: "flex flex-wrap max-w-[35em]",
     year: `
-        flex items-center justify-center
-        w-[calc(20%_-_1em)] m-2 p-2 rounded-md
-        bg-gray-200
-        aria-selected:bg-blue-500 aria-selected:text-white
-        focus:outline focus:outline-2 focus:outline-blue-500 focus:outline-offset-2 focus:bg-white focus:text-black
-        data-[is-extra=true]:opacity-25
-        formkit-disabled:opacity-50 formkit-disabled:cursor-default formkit-disabled:pointer-events-none
-      `,
+      flex items-center justify-center
+      w-[calc(20%_-_1em)] m-2 p-2 rounded-md
+      bg-gray-200
+      aria-selected:bg-blue-500 aria-selected:text-white
+      focus:outline focus:outline-2 focus:outline-blue-500 focus:outline-offset-2 focus:bg-white focus:text-black
+      data-[is-extra=true]:opacity-25
+      formkit-disabled:opacity-50 formkit-disabled:cursor-default formkit-disabled:pointer-events-none
+    `,
     weekDays: "flex",
     weekDay:
       "flex w-[2.25em] h-[1em] m-1 items-center justify-center rounded-md font-medium lowercase",
     week: "flex formkit-disabled:opacity-50 formkit-disabled:cursor-default formkit-disabled:pointer-events-none",
     dayCell: `
-        flex items-center justify-center
-        w-[2.25em] h-[2.25em] m-1 p-2 rounded-md
-        bg-gray-200
-        aria-selected:bg-blue-500 aria-selected:text-white
-        focus:outline focus:outline-2 focus:outline-blue-500 focus:outline-offset-2 focus:bg-white focus:text-black
-        data-[is-extra=true]:opacity-25
-        formkit-disabled:opacity-50 formkit-disabled:cursor-default formkit-disabled:pointer-events-none
-      `,
+      flex items-center justify-center
+      w-[2.25em] h-[2.25em] m-1 p-2 rounded-md
+      bg-gray-200
+      aria-selected:bg-blue-500 aria-selected:text-white
+      focus:outline focus:outline-2 focus:outline-blue-500 focus:outline-offset-2 focus:bg-white focus:text-black
+      data-[is-extra=true]:opacity-25
+      formkit-disabled:opacity-50 formkit-disabled:cursor-default formkit-disabled:pointer-events-none
+    `,
     timeInput:
       "w-full border-2 border-gray-300 rounded-md p-2 my-[2em] focus-visible:outline-blue-500",
     daysHeader: "flex items-center justify-center",
@@ -197,9 +196,9 @@ export default {
     nextLabel: "hidden",
     nextIcon: "flex w-3 select-none [&>svg]:w-full",
     openButton: `
-        appearance-none border-0 bg-transparent flex p-0 self-stretch cursor-pointer
-        focus-visible:outline-none focus-visible:text-white focus-visible:bg-blue-500
-      `,
+      appearance-none border-0 bg-transparent flex p-0 self-stretch cursor-pointer
+      focus-visible:outline-none focus-visible:text-white focus-visible:bg-blue-500
+    `,
     calendarIcon:
       "flex w-8 grow-0 shrink-0 self-stretch select-none [&>svg]:w-full [&>svg]:m-auto [&>svg]:max-h-[1em] [&>svg]:max-w-[1em]",
   },
@@ -231,7 +230,7 @@ export default {
       "hover:text-blue-500 disabled:hover:text-inherit disabled:opacity-25",
   },
   slider: {
-    outer: "max-w-md",
+    outer: "",
     help: "mt-0 mb-1",
     sliderInner:
       'flex items-center py-1 [&>.formkit-max-value]:mb-0 [&>.formkit-max-value]:ml-8 [&>.formkit-max-value]:shrink [&>.formkit-max-value]:grow-0 [&>.formkit-icon]:bg-none [&>.formkit-icon]:border-none [&>.formkit-icon]:p-0 [&>.formkit-icon]:w-4 [&>.formkit-prefix-icon]:mr-2 [&>.formkit-suffix-icon]:ml-2 [&[data-has-mark-labels="true"]_.formkit-track]:mb-4',
@@ -281,14 +280,14 @@ export default {
   },
   transferlist: {
     outer: `
-        [&_.dnd-placeholder]:bg-blue-500 [&_.dnd-placeholder]:text-white
-        [&_.dnd-placeholder_svg]:text-white
-        [&_.dnd-children-hidden]:w-full [&_.dnd-children-hidden]:p-0 [&_.dnd-children-hidden]:flex [&_.dnd-children-hidden]:flex-col [&_.dnd-children-hidden]:border-none
-        [&_.dnd-children-hidden_span]:hidden
-        [&_.dnd-children-hidden_.formkit-transferlist-option]:hidden
-        [&_.dnd-multiple-selections_span]:inline-block
-        [&_.dnd-multiple-selections_.formkit-transferlist-option]:inline-block
-      `,
+      [&_.dnd-placeholder]:bg-blue-500 [&_.dnd-placeholder]:text-white
+      [&_.dnd-placeholder_svg]:text-white
+      [&_.dnd-children-hidden]:w-full [&_.dnd-children-hidden]:p-0 [&_.dnd-children-hidden]:flex [&_.dnd-children-hidden]:flex-col [&_.dnd-children-hidden]:border-none
+      [&_.dnd-children-hidden_span]:hidden
+      [&_.dnd-children-hidden_.formkit-transferlist-option]:hidden
+      [&_.dnd-multiple-selections_span]:inline-block
+      [&_.dnd-multiple-selections_.formkit-transferlist-option]:inline-block
+    `,
     fieldset: "$reset max-w-2xl",
     wrapper:
       "flex max-h-[350px] flex-col sm:flex-row justify-between w-full max-w-none",
