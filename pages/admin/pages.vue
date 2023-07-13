@@ -6,6 +6,8 @@ import TextAlign from "@tiptap/extension-text-align";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import CodeBlockVue from "@/components/Admin/CodeBlock.vue";
 
+import { useFullscreen } from "@vueuse/core";
+
 import css from "highlight.js/lib/languages/css";
 import js from "highlight.js/lib/languages/javascript";
 import ts from "highlight.js/lib/languages/typescript";
@@ -21,6 +23,9 @@ lowlight.registerLanguage("php", php);
 
 const content = ref<String>("");
 const showHighlight = ref<Boolean>(false);
+
+const fullEl = ref<HTMLElement>();
+const { toggle, isFullscreen } = useFullscreen(fullEl);
 
 const coverImg = ref();
 interface Form {
@@ -78,6 +83,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   editor.value.destroy();
 });
+
+const tagOptions = ["Chocolate", "Vanilla", "Strawberry"];
 </script>
 
 <template>
@@ -103,6 +110,15 @@ onBeforeUnmount(() => {
               placeholder="your-slug-here"
             />
             <CommonSwitch v-model:toggle="form.published" label="Published" />
+            <FormKit
+              type="taglist"
+              name="flavors"
+              :options="tagOptions"
+              :value="['Chocolate', 'Vanilla']"
+              :allow-new-values="true"
+              placeholder="Select or Add Tags"
+              max="5"
+            />
           </div>
           <div class="flex flex-col">
             <FormKit
@@ -119,7 +135,7 @@ onBeforeUnmount(() => {
           </div>
         </FormKit>
       </div>
-      <div class="px-5 max-w-[1200px]">
+      <div class="px-5" ref="fullEl">
         <ClientOnly>
           <div
             class="flex flex-wrap justify-start p-2 space-x-1 border rounded-t-xl dark:border-zinc-700"
@@ -401,24 +417,32 @@ onBeforeUnmount(() => {
               </template>
             </UPopover>
 
-            <UTooltip text="Undo">
-              <button
-                class="editor-button"
-                v-tippy="{ content: 'Undo', placement: 'bottom' }"
-                @click="editor.chain().focus().undo().run()"
-              >
-                <Icon name="material-symbols:undo-rounded" />
-              </button>
-            </UTooltip>
-            <UTooltip text="Redo">
-              <button
-                class="editor-button"
-                v-tippy="{ content: 'Redo', placement: 'bottom' }"
-                @click="editor.chain().focus().redo().run()"
-              >
-                <Icon name="material-symbols:redo-rounded" />
-              </button>
-            </UTooltip>
+            <button
+              class="editor-button"
+              v-tippy="{ content: 'Undo', placement: 'bottom' }"
+              @click="editor.chain().focus().undo().run()"
+            >
+              <Icon name="material-symbols:undo-rounded" />
+            </button>
+            <button
+              class="editor-button"
+              v-tippy="{ content: 'Redo', placement: 'bottom' }"
+              @click="editor.chain().focus().redo().run()"
+            >
+              <Icon name="material-symbols:redo-rounded" />
+            </button>
+            <button
+              class="editor-button"
+              @click="toggle"
+              v-tippy="{
+                content: isFullscreen ? 'Exit Fullscreen' : 'Go Fullscreen',
+                placement: 'bottom',
+              }"
+            >
+              <Icon
+                :name="isFullscreen ? `mdi:fullscreen-exit` : `mdi:fullscreen`"
+              />
+            </button>
           </div>
           <div class="border border-t-0 border-zinc-700 bg-gpurple/10">
             <EditorContent
