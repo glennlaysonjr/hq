@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useMouse } from "@vueuse/core";
-import Switch from "components/Common/Switch.vue";
 const { x, y, sourceType } = useMouse();
 
 const enabled = ref(false);
@@ -14,14 +13,13 @@ const enabled = ref(false);
         class="flex items-center justify-between w-full h-full px-4 pt-6 pb-4"
       >
         <div class="">
-          <SystemLogo class="w-10" />
+          <SystemLogo class="mt-2 w-18" />
         </div>
         <div>
           <SystemNav />
         </div>
         <div class="flex items-center justify-center">
           <OtherWeather class="mr-2" />
-          <CommonSwitch v-model="enabled" />
         </div>
       </div>
     </header>

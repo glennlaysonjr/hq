@@ -8,12 +8,13 @@ module.exports = {
     "./pages/**/*.vue",
     "./plugins/**/*.{js,ts}",
     "./nuxt.config.{js,ts}",
-    "./formkit.config.ts",
-    "./theme.formkit.ts",
     "./app.vue",
   ],
   theme: {
     extend: {
+      borderRadius: {
+        default: "6px",
+      },
       cursor: {
         fancy: "url(@/assets/media/cursor.svg), auto",
       },
@@ -31,15 +32,48 @@ module.exports = {
           900: "#121212",
         },
         gpurple: "#5822f6",
+        gpurpleLight: "#D4D0E3",
+        gpurpleDark: "#DCD7EB",
+        input: "#888694",
+        body: "#F7F6FF",
         info: "#2F80ED",
         success: "#008F0B",
         warning: "#F5B900",
         error: "#E10000",
         offWhite: "#E5E5E5",
       },
+      boxShadow: {
+        input: "0px 11px 32px -15px rgba(226, 224, 244, 0.85)",
+      },
     },
     fontFamily: {
-      sans: ["GothamRounded", "sans-serif"],
+      sans: ["Inter", "sans-serif"],
+      cursive: ["Kalam", "cursive"],
+    },
+    keyframes: {
+      slideDownAndFade: {
+        from: { opacity: 0, transform: "translateY(-2px)" },
+        to: { opacity: 1, transform: "translateY(0)" },
+      },
+      slideLeftAndFade: {
+        from: { opacity: 0, transform: "translateX(2px)" },
+        to: { opacity: 1, transform: "translateX(0)" },
+      },
+      slideUpAndFade: {
+        from: { opacity: 0, transform: "translateY(2px)" },
+        to: { opacity: 1, transform: "translateY(0)" },
+      },
+      slideRightAndFade: {
+        from: { opacity: 0, transform: "translateX(-2px)" },
+        to: { opacity: 1, transform: "translateX(0)" },
+      },
+    },
+    animation: {
+      slideDownAndFade: "slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+      slideLeftAndFade: "slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+      slideUpAndFade: "slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+      slideRightAndFade:
+        "slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
     },
   },
   plugins: [
