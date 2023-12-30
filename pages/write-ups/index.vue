@@ -41,6 +41,7 @@ const { data: write_ups, suspense } = useQuery({
           "read_time",
           "tags.*",
           "tags.tags_id.*",
+          "markdown",
         ],
       }),
     );
@@ -67,15 +68,22 @@ await suspense();
 //   },
 //   { immediate: true, deep: true },
 // );
+
+function readingTime(text: any) {
+  const wpm = 225;
+  const words = text.trim().split(/\s+/).length;
+  const time = Math.ceil(words / wpm);
+  return time;
+}
 </script>
 <template>
-  <NuxtLayout :name="write_ups?.layout">
+  <NuxtLayout name="default">
     <main class="grid grid-cols-1 px-6 pt-8">
       <div class="max-w-[1200px] mx-auto w-full">
         <h1
           class="text-7xl leading-10 sm:leading-[155px] sm:text-[155px] sm:tracking-[-12px] tracking-tight font-bold text-[#BAA7F5] hover:text-[#1B006B] transition-all ease-in-out duration-500 max-w-fit pb-0 sm:-mb-9 -mb-0 z-0 px-4"
         >
-          Projects
+          Write Ups
         </h1>
       </div>
       <article
@@ -119,7 +127,7 @@ await suspense();
                 </template>
               </p>
               <p class="text-xs font-semibold">
-                {{ write_up.read_time }} min read
+                {{ readingTime(write_up.markdown) }} min read
               </p>
             </div>
           </div>

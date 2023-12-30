@@ -115,7 +115,9 @@ const handleMouseMove = (event) => {
         class="flex flex-col items-center relative justify-center min-h-[calc(100vh-65px)]"
       >
         <div class="z-0 text-center" style="text-shadow: 3px -3px 50px #bbb2f3">
-          <h1>Well hey there!</h1>
+          <h1 class="font-bold tracking-[-8px] sm:text-[100px] text-[#1B006B]">
+            Well hey there!
+          </h1>
           <h4>I’m Glenn Layson a full stack web developer & ux/ui designer.</h4>
         </div>
         <div
