@@ -20,13 +20,20 @@ const { $directus, $readItems } = useNuxtApp();
 
 // Fetch page data
 const { data: write_ups, suspense } = useQuery({
-  queryKey: ["write_ups", "index"],
+  queryKey: ["write_ups", route.params.tag],
   queryFn: async () => {
     const res = await $directus.request(
       $readItems("write_ups", {
         filter: {
           date_published: {
             _lte: dayjs().format("YYYY-MM-DD"),
+          },
+          tags: {
+            tags_id: {
+              tag: {
+                _contains: route.params.tag,
+              },
+            },
           },
         },
         sort: "-date_published",
@@ -69,13 +76,13 @@ await suspense();
 // );
 </script>
 <template>
-  <NuxtLayout :name="write_ups?.layout">
+  <NuxtLayout name="default">
     <main class="grid grid-cols-1 px-6 pt-8">
       <div class="max-w-[1200px] mx-auto w-full">
         <h1
           class="text-7xl leading-10 sm:leading-[155px] sm:text-[155px] sm:tracking-[-12px] tracking-tight font-bold text-[#BAA7F5] hover:text-[#1B006B] transition-all ease-in-out duration-500 max-w-fit pb-0 sm:-mb-9 -mb-0 z-0 px-4"
         >
-          Projects
+          Write Ups - #{{ route.params.tag }}
         </h1>
       </div>
       <article
@@ -113,6 +120,9 @@ await suspense();
                   <NuxtLink
                     class="px-2 text-sm transition-all duration-500 ease-in-out border-2 border-transparent rounded-md text-gpurple hover:border-gpurple/10"
                     :to="`/write-ups/tags/${tag.tags_id.tag}`"
+                    :class="{
+                      'border-gpurple/10': tag.tags_id.tag === route.params.tag,
+                    }"
                   >
                     #{{ tag.tags_id.tag }}
                   </NuxtLink>

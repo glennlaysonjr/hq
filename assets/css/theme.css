@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Comic Shanns";
+  src: url("/fonts/comic_shanns.woff2") format("woff2"),
+    url("/fonts/comic_shanns.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
   text-align: left;
@@ -8,10 +17,10 @@ pre[class*="language-"] {
   word-wrap: normal;
   color: #c3cee3;
   background: #24293b;
-  font-family: Roboto Mono, monospace;
+  font-family: Comic Shanns, monospace;
   font-size: 1em;
   line-height: 1.5em;
-
+  transition: all 0.3s ease-in-out;
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
@@ -20,6 +29,13 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+}
+
+pre[class*="language-"] {
+  border: solid 3px #ffffff00;
+}
+pre[class*="language-"]:hover {
+  border: solid 3px #5822f6;
 }
 
 code[class*="language-"]::-moz-selection,

@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "radix-vue/nuxt",
     "@hebilicious/vue-query-nuxt",
+    "@stefanobartoletti/nuxt-social-share",
   ],
   headlessui: {
     prefix: "Headless",

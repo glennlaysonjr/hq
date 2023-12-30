@@ -19,11 +19,11 @@ const route = useRoute();
 const { $directus, $readItems } = useNuxtApp();
 
 // Fetch page data
-const { data: write_ups, suspense } = useQuery({
-  queryKey: ["write_ups", "index"],
+const { data: projects, suspense } = useQuery({
+  queryKey: ["projects", "index"],
   queryFn: async () => {
     const res = await $directus.request(
-      $readItems("write_ups", {
+      $readItems("projects", {
         filter: {
           date_published: {
             _lte: dayjs().format("YYYY-MM-DD"),
@@ -49,18 +49,18 @@ const { data: write_ups, suspense } = useQuery({
 });
 await suspense();
 
-// If write_ups is not published or is not published yet, throw 404
+// If projects is not published or is not published yet, throw 404
 // watch(
-//   () => write_ups.value,
-//   async (write_ups) => {
-//     if (write_ups) {
+//   () => projects.value,
+//   async (projects) => {
+//     if (projects) {
 //       if (
-//         write_ups?.status !== "published" ||
-//         !dayjs().isSameOrAfter(write_ups?.date_published)
+//         projects?.status !== "published" ||
+//         !dayjs().isSameOrAfter(projects?.date_published)
 //       ) {
 //         throw createError({
 //           statusCode: 404,
-//           statusMessage: "write_ups Not Found",
+//           statusMessage: "projects Not Found",
 //         });
 //       }
 //     }
@@ -69,7 +69,7 @@ await suspense();
 // );
 </script>
 <template>
-  <NuxtLayout :name="write_ups?.layout">
+  <NuxtLayout name="default">
     <main class="grid grid-cols-1 px-6 pt-8">
       <div class="max-w-[1200px] mx-auto w-full">
         <h1
@@ -81,7 +81,7 @@ await suspense();
       <article
         class="z-10 min-h-60 sm:px-7 flex flex-col gap-y-3 py-8 mt-0 max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
       >
-        <template v-for="write_up in write_ups">
+        <template v-for="write_up in projects">
           <div class="p-8 border-2 rounded-3xl hover:border-gpurple/30">
             <div class="flex items-center gap-2">
               <div>
