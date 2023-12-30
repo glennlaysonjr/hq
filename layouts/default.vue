@@ -1,19 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useMouse } from "@vueuse/core";
+const { x, y, sourceType } = useMouse();
+
+const enabled = ref(false);
+</script>
 <template>
   <main
     class="h-screen bg-gradient-to-b from-[#E1DFF3] to-transparent to-40% w-full"
   >
-    <header class="header-border flex justify-between items-center h-16 w-full">
+    <header class="flex items-center justify-between w-full h-16 header-border">
       <div
-        class="flex justify-between items-center w-full h-full px-4 pt-6 pb-4"
+        class="flex items-center justify-between w-full h-full px-4 pt-6 pb-4"
       >
         <div class="">
-          <SystemLogo />
+          <SystemLogo class="mt-2 w-18" />
         </div>
         <div>
           <SystemNav />
         </div>
-        <div></div>
+        <div class="flex items-center justify-center">
+          <OtherWeather class="mr-2" />
+        </div>
       </div>
     </header>
     <slot />

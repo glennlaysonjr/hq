@@ -1,0 +1,23 @@
+export type ButtonType = "primary" | "ghost" | "simple";
+export type Button = {
+  prefixIcon?: string;
+  mode?: "light" | "dark";
+  prefixIconClass?: string;
+  prefixClass?: string;
+  suffixIconClass?: string;
+  suffixIcon?: string;
+  suffixClass?: string;
+  label?: string;
+  labelClass?: string;
+  outerClass?: string;
+  type?: ButtonType;
+  color?: string;
+  help?: string;
+  helpClass?: string;
+  message?: string;
+  messageClass?: string;
+  wrapperClass?: string;
+  loading?: boolean;
+  rounded?: boolean;
+  isSubmit?: boolean;
+};
