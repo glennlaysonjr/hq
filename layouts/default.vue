@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { useMouse } from "@vueuse/core";
 import dayjs from "dayjs";
-const { x, y, sourceType } = useMouse();
 
 const currentYear = dayjs().format("YYYY");
 
 const enabled = ref(false);
+const showSearch = ref(false);
 </script>
 <template>
   <main
@@ -21,7 +20,12 @@ const enabled = ref(false);
         <div>
           <SystemNav />
         </div>
-        <div class="flex items-center justify-center">
+        <div class="flex items-center justify-center gap-3">
+          <Icon
+            name="ph:magnifying-glass-bold"
+            class="text-lg text-[#5822F6]/30 hover:text-[#5822F6] mt-1 transition-all ease-in-out duration-500"
+            @click="showSearch = !showSearch"
+          />
           <OtherWeather class="mr-2" />
         </div>
       </div>
@@ -34,6 +38,9 @@ const enabled = ref(false);
       </div>
     </footer>
   </main>
+  <UModal v-model="showSearch">
+    <CommonSearch />
+  </UModal>
 </template>
 <style scoped>
 .header-border::after {
