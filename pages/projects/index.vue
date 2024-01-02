@@ -1,5 +1,4 @@
 <script setup lang="ts">
-await import("@/assets/css/theme.css");
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
@@ -137,6 +136,8 @@ await suspense();
   </NuxtLayout>
 </template>
 <style>
+@import url("~/assets/css/theme.css");
+
 /* CSS hack to resize icons by targeting a hash string */
 img[src*="#icon"] {
   display: inline-block;
