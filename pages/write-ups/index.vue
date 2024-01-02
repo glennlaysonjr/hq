@@ -24,6 +24,9 @@ const { data: write_ups, suspense } = useQuery({
     const res = await $directus.request(
       $readItems("write_ups", {
         filter: {
+          status: {
+            _eq: "published",
+          },
           date_published: {
             _lte: dayjs().format("YYYY-MM-DD"),
           },
@@ -49,25 +52,6 @@ const { data: write_ups, suspense } = useQuery({
 });
 await suspense();
 
-// If write_ups is not published or is not published yet, throw 404
-// watch(
-//   () => write_ups.value,
-//   async (write_ups) => {
-//     if (write_ups) {
-//       if (
-//         write_ups?.status !== "published" ||
-//         !dayjs().isSameOrAfter(write_ups?.date_published)
-//       ) {
-//         throw createError({
-//           statusCode: 404,
-//           statusMessage: "write_ups Not Found",
-//         });
-//       }
-//     }
-//   },
-//   { immediate: true, deep: true },
-// );
-
 function readingTime(text: any) {
   const wpm = 225;
   const words = text.trim().split(/\s+/).length;
@@ -89,7 +73,10 @@ function readingTime(text: any) {
         class="z-10 min-h-60 sm:px-7 flex flex-col gap-y-3 py-8 mt-0 max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
       >
         <template v-for="write_up in write_ups">
-          <div class="p-8 border-2 rounded-3xl hover:border-gpurple/30">
+          <div
+            class="p-8 border-2 rounded-3xl hover:border-gpurple/30"
+            @click="navigateTo(`/write-ups/${write_up.slug}`)"
+          >
             <div class="flex items-center gap-2">
               <div>
                 <img
@@ -110,9 +97,7 @@ function readingTime(text: any) {
               </div>
             </div>
             <h2 class="mt-3">
-              <NuxtLink :to="`/write-ups/${write_up.slug}`">
-                {{ write_up.title }}
-              </NuxtLink>
+              {{ write_up.title }}
             </h2>
             <div class="flex items-center justify-between">
               <p class="flex gap-1 mt-3">

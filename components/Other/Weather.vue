@@ -5,6 +5,8 @@ import axios from "axios";
 const weatherActive = ref(false);
 const toggleWeather = useToggle(weatherActive);
 
+const config = useRuntimeConfig();
+
 const { data: weather, isFetching } = useQuery({
   queryKey: ["weather"],
   queryFn: async () => {
@@ -15,8 +17,7 @@ const { data: weather, isFetching } = useQuery({
           q: "dallas, tx",
         },
         headers: {
-          "X-RapidAPI-Key":
-            "4bd053ba9fmshccbbc6e2a8259aap1b768djsnc8e5e1900ea4",
+          "X-RapidAPI-Key": config.public.rapidapiToken,
           "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
         },
       },
@@ -238,8 +239,12 @@ watch(
             />
           </svg>
         </div>
-        <template name="card-content">
-          <div class="p-4 text-xs text-black">{{ weatherMessage }}</div>
+        <template #content>
+          <div
+            class="px-4 py-2 text-xs max-w-fit text-white bg-[#1B006B] rounded-lg"
+          >
+            {{ weatherMessage }}
+          </div>
         </template>
       </CommonHoverCard>
     </div>
