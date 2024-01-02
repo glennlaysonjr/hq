@@ -81,48 +81,56 @@ await suspense();
       <article
         class="z-10 min-h-60 sm:px-7 flex flex-col gap-y-3 py-8 mt-0 max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
       >
-        <template v-for="write_up in projects">
-          <div class="p-8 border-2 rounded-3xl hover:border-gpurple/30">
-            <div class="flex items-center gap-2">
-              <div>
-                <img
-                  :src="`https://core.glennlayson.com/assets/${write_up.user_created.avatar}`"
-                  alt="avatar"
-                  class="w-7 h-7"
-                />
+        <template v-if="projects?.length > 0">
+          <template v-for="write_up in projects">
+            <div class="p-8 border-2 rounded-3xl hover:border-gpurple/30">
+              <div class="flex items-center gap-2">
+                <div>
+                  <img
+                    :src="`https://core.glennlayson.com/assets/${write_up.user_created.avatar}`"
+                    alt="avatar"
+                    class="w-7 h-7"
+                  />
+                </div>
+                <div>
+                  <p class="text-xs font-semibold">
+                    {{ write_up.user_created.first_name }}
+                    {{ write_up.user_created.last_name }}
+                  </p>
+                  <p class="text-[10px]">
+                    {{ dayjs(write_up.date_published).format("MMM D") }}
+                    ({{ dayjs(write_up.date_published).fromNow() }})
+                  </p>
+                </div>
               </div>
-              <div>
+              <h2 class="mt-3">
+                <NuxtLink :to="`/write-ups/${write_up.slug}`">
+                  {{ write_up.title }}
+                </NuxtLink>
+              </h2>
+              <div class="flex items-center justify-between">
+                <p class="flex gap-1 mt-3">
+                  <template v-for="tag in write_up.tags">
+                    <NuxtLink
+                      class="px-2 text-sm transition-all duration-500 ease-in-out border-2 border-transparent rounded-md text-gpurple hover:border-gpurple/10"
+                      :to="`/write-ups/tags/${tag.tags_id.tag}`"
+                    >
+                      #{{ tag.tags_id.tag }}
+                    </NuxtLink>
+                  </template>
+                </p>
                 <p class="text-xs font-semibold">
-                  {{ write_up.user_created.first_name }}
-                  {{ write_up.user_created.last_name }}
-                </p>
-                <p class="text-[10px]">
-                  {{ dayjs(write_up.date_published).format("MMM D") }}
-                  ({{ dayjs(write_up.date_published).fromNow() }})
+                  {{ write_up.read_time }} min read
                 </p>
               </div>
             </div>
-            <h2 class="mt-3">
-              <NuxtLink :to="`/write-ups/${write_up.slug}`">
-                {{ write_up.title }}
-              </NuxtLink>
-            </h2>
-            <div class="flex items-center justify-between">
-              <p class="flex gap-1 mt-3">
-                <template v-for="tag in write_up.tags">
-                  <NuxtLink
-                    class="px-2 text-sm transition-all duration-500 ease-in-out border-2 border-transparent rounded-md text-gpurple hover:border-gpurple/10"
-                    :to="`/write-ups/tags/${tag.tags_id.tag}`"
-                  >
-                    #{{ tag.tags_id.tag }}
-                  </NuxtLink>
-                </template>
-              </p>
-              <p class="text-xs font-semibold">
-                {{ write_up.read_time }} min read
-              </p>
-            </div>
-          </div>
+          </template>
+        </template>
+        <template v-else>
+          <p class="text-center">
+            Sorry 😢, No public projects available at this time. <br />
+            Rest assured we are working on something awesome!
+          </p>
         </template>
       </article>
     </main>
