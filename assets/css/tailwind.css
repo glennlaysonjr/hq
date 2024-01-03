@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Inter:wght@300;500;600;700&family=M+PLUS+Rounded+1c:wght@300;400;500;700;800&family=Varela+Round&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,24 +15,42 @@
 body {
   @apply font-normal text-black bg-white;
   cursor: url(@/assets/media/cursor.svg) 1 1, auto;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+p {
+  @apply text-sm font-medium;
+  font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
 h1 {
+  font-family: "Inter", sans-serif;
+
   @apply font-medium text-7xl;
 }
 h2 {
+  font-family: "Inter", sans-serif;
+
   @apply text-5xl font-medium;
 }
 h3 {
+  font-family: "Inter", sans-serif;
+
   @apply text-2xl font-medium;
 }
 h4 {
+  font-family: "Inter", sans-serif;
+
   @apply text-xl font-medium;
 }
 h5 {
+  font-family: "Inter", sans-serif;
+
   @apply text-lg font-medium;
 }
 h6 {
+  font-family: "Inter", sans-serif;
+
   @apply text-base font-medium uppercase;
 }
 

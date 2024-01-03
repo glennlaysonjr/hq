@@ -62,14 +62,14 @@ watch(
     <main class="grid grid-cols-1 px-6 pt-8">
       <div class="max-w-[1200px] mx-auto w-full">
         <h1
-          class="text-7xl leading-10 sm:leading-[155px] sm:text-[155px] sm:tracking-[-12px] tracking-tight font-bold text-[#BAA7F5] hover:text-[#1B006B] transition-all ease-in-out duration-500 max-w-fit pb-0 sm:-mb-9 -mb-0 z-0 px-4"
+          class="text-7xl leading-10 sm:leading-[155px] sm:text-[9rem] sm:tracking-[-12px] tracking-tight font-bold text-[#BAA7F5] hover:text-[#1B006B] transition-all ease-in-out duration-500 max-w-fit pb-0 sm:-mb-9 -mb-0 z-0 px-4"
         >
           {{ page?.title }}
         </h1>
       </div>
 
       <article
-        class="z-10 prose prose-h2:text-4xl sm:prose-h2:text-5xl prose-h2:tracking-[-2px] sm:prose-h2:tracking-[-3px] prose-h3:text-2xl prose-h3:tracking-[-1px] prose-img:my-0 prose-p:mb-0 prose-blockquote:not-italic prose-hr:mb-5 sm:px-7 py-8 mt-0 prose-img:rounded-md max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
+        class="z-10 prose prose-h2:text-[2.5rem] prose-h2:leading-[2rem] sm:prose-h2:leading-[4rem] sm:prose-h2:text-[4rem] prose-h2:tracking-[-1px] sm:prose-h2:tracking-[-3px] prose-h3:text-2xl prose-h3:tracking-[-1px] prose-img:my-0 prose-p:mb-0 prose-blockquote:not-italic prose-hr:mb-5 px-6 sm:px-7 py-8 mt-0 prose-img:rounded-md max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
         v-html="$mdRenderer.render(page?.markdown)"
       />
     </main>
