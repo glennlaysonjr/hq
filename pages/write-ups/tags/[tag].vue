@@ -69,7 +69,7 @@ await suspense();
         </h1>
       </div>
       <article
-        class="z-10 min-h-60 sm:px-7 flex flex-col gap-y-3 py-8 mt-0 max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
+        class="z-10 min-h-60 px-2 sm:px-7 flex flex-col gap-y-3 py-8 mt-0 max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
       >
         <template v-for="write_up in write_ups">
           <div

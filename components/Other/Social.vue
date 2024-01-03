@@ -3,10 +3,14 @@
   <div class="relative flex flex-row gap-4 social">
     <ol class="flex gap-4">
       <li>
-        <div>
+        <div
+          @click="
+            navigateTo('https://codepen.io/glennlaysonjr/', { external: true })
+          "
+        >
           <svg
-            width="37"
-            height="37"
+            width="20"
+            height="20"
             viewBox="0 0 37 37"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -40,10 +44,14 @@
         </div>
       </li>
       <li>
-        <div>
+        <div
+          @click="
+            navigateTo('https://github.com/glennlaysonjr', { external: true })
+          "
+        >
           <svg
-            width="38"
-            height="37"
+            width="20"
+            height="20"
             viewBox="0 0 38 37"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -82,10 +90,14 @@
         </div>
       </li>
       <li>
-        <div>
+        <div
+          @click="
+            navigateTo('https://dribbble.com/glennlaysonjr', { external: true })
+          "
+        >
           <svg
-            width="38"
-            height="37"
+            width="20"
+            height="20"
             viewBox="0 0 38 37"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -124,10 +136,16 @@
         </div>
       </li>
       <li>
-        <div>
+        <div
+          @click="
+            navigateTo('https://www.behance.net/glennlaysoonjr', {
+              external: true,
+            })
+          "
+        >
           <svg
-            width="37"
-            height="37"
+            width="20"
+            height="20"
             viewBox="0 0 37 37"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -166,10 +184,16 @@
         </div>
       </li>
       <li>
-        <div>
+        <div
+          @click="
+            navigateTo('https://www.instagram.com/glennlayson/', {
+              external: true,
+            })
+          "
+        >
           <svg
-            width="37"
-            height="37"
+            width="20"
+            height="20"
             viewBox="0 0 37 37"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -208,10 +232,16 @@
         </div>
       </li>
       <li>
-        <div>
+        <div
+          @click="
+            navigateTo('https://www.linkedin.com/in/glennlaysonjr', {
+              external: true,
+            })
+          "
+        >
           <svg
-            width="37"
-            height="37"
+            width="20"
+            height="20"
             viewBox="0 0 37 37"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -250,10 +280,14 @@
         </div>
       </li>
       <li>
-        <div>
+        <div
+          @click="
+            navigateTo('https://twitter.com/glennlayson', { external: true })
+          "
+        >
           <svg
-            width="37"
-            height="31"
+            width="20"
+            height="20"
             viewBox="0 0 32 26"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -268,8 +302,8 @@
       <li>
         <div>
           <svg
-            width="20"
-            height="32"
+            width="18"
+            height="18"
             viewBox="0 0 18 27"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -311,10 +345,10 @@
   @apply max-w-fit;
 }
 .social ol li div svg {
-  @apply transition-all block duration-300 ease-in-out cursor-fancy;
+  @apply transition-all block duration-500  cursor-fancy;
 }
 .social ol li div svg:hover {
-  transform: translate(0, -10px);
+  transform: translate(0, -6px);
 }
 .social ol li div:before,
 .social ol li div:after {
