@@ -207,7 +207,7 @@ const { mutate: addFeedback } = useMutation({
       <div
         class="bg-white my-5 border-gpurple/10 border rounded-lg shadow-[0px_11px_50px_-15px_#E2E0F4] p-8"
       >
-        <p>What do you think?</p>
+        <p>What do you think...</p>
         <h4>How helpful was this article?</h4>
         <div
           class="flex flex-wrap gap-3 my-4 sm:flex-nowrap"

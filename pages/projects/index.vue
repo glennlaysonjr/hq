@@ -109,7 +109,8 @@ await suspense();
         <template v-else>
           <p class="text-center">
             Sorry 😢, No public projects available at this time. <br />
-            Rest assured we are working on something awesome!
+            Rest assured we are working on something awesome open source
+            projects!
           </p>
         </template>
       </article>

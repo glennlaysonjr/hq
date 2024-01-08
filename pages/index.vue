@@ -138,7 +138,9 @@ const handleMouseMove = (event) => {
         </div>
       </article>
       <article class="relative flex gap-3 about">
-        <article class="flex gap-5 max-w-[1200px] mx-auto">
+        <article
+          class="flex gap-5 sm:flex-nowrap flex-wrap max-w-[1200px] mx-auto"
+        >
           <div
             class="flex flex-col items-center justify-center min-w-[300px] gap-2 px-4 rounded-lg mb-4 sm:flex-row bg-[#140344]"
           >
