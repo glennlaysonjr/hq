@@ -54,11 +54,7 @@ watch(
 );
 </script>
 <template>
-  <NuxtLayout
-    :name="page?.layout"
-    :title="page?.title"
-    :cover_image="page?.cover_image"
-  >
+  <NuxtLayout name="default">
     <main class="grid grid-cols-1 px-6 pt-8">
       <div class="max-w-[1200px] mx-auto w-full">
         <h1
@@ -70,7 +66,7 @@ watch(
 
       <article
         class="z-10 prose prose-h2:text-[2.5rem] prose-h2:leading-[2rem] sm:prose-h2:leading-[4rem] sm:prose-h2:text-[4rem] prose-h2:tracking-[-1px] sm:prose-h2:tracking-[-3px] prose-h3:text-2xl prose-h3:tracking-[-1px] prose-img:my-0 prose-p:mb-0 prose-blockquote:not-italic prose-hr:mb-5 px-6 sm:px-7 py-8 mt-0 prose-img:rounded-md max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
-        v-html="$mdRenderer.render(page?.markdown)"
+        v-html="$mdRenderer.render(page?.markdown ?? '')"
       />
     </main>
   </NuxtLayout>

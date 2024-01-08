@@ -47,28 +47,9 @@ const { data: write_ups, suspense } = useQuery({
   },
 });
 await suspense();
-
-// If write_ups is not published or is not published yet, throw 404
-// watch(
-//   () => write_ups.value,
-//   async (write_ups) => {
-//     if (write_ups) {
-//       if (
-//         write_ups?.status !== "published" ||
-//         !dayjs().isSameOrAfter(write_ups?.date_published)
-//       ) {
-//         throw createError({
-//           statusCode: 404,
-//           statusMessage: "write_ups Not Found",
-//         });
-//       }
-//     }
-//   },
-//   { immediate: true, deep: true },
-// );
 </script>
 <template>
-  <NuxtLayout :name="write_ups?.layout">
+  <NuxtLayout name="default">
     <main class="grid grid-cols-1 px-6 pt-8">
       <div class="max-w-[1200px] mx-auto w-full">
         <h1
