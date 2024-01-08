@@ -205,7 +205,7 @@ const { mutate: addFeedback } = useMutation({
         </div>
       </article>
       <div
-        class="bg-white my-5 border-gpurple/10 border rounded-lg shadow-[0px_11px_50px_-15px_#E2E0F4] p-8"
+        class="bg-white my-5 max-w-[1200px] w-full mx-auto border-gpurple/10 border rounded-lg shadow-[0px_11px_50px_-15px_#E2E0F4] p-8"
       >
         <p>What do you think...</p>
         <h4>How helpful was this article?</h4>
