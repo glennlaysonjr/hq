@@ -47,25 +47,6 @@ const { data: projects, suspense } = useQuery({
   },
 });
 await suspense();
-
-// If projects is not published or is not published yet, throw 404
-// watch(
-//   () => projects.value,
-//   async (projects) => {
-//     if (projects) {
-//       if (
-//         projects?.status !== "published" ||
-//         !dayjs().isSameOrAfter(projects?.date_published)
-//       ) {
-//         throw createError({
-//           statusCode: 404,
-//           statusMessage: "projects Not Found",
-//         });
-//       }
-//     }
-//   },
-//   { immediate: true, deep: true },
-// );
 </script>
 <template>
   <NuxtLayout name="default">

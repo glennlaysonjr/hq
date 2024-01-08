@@ -15,10 +15,14 @@ dayjs.extend(relativeTime);
 
 const route = useRoute();
 
-const { $directus, $readItems } = useNuxtApp();
+const { $directus, $readItems, $updateItem } = useNuxtApp();
 
 // Fetch page data
-const { data: write_ups, suspense } = useQuery({
+const {
+  data: write_ups,
+  suspense,
+  refetch,
+} = useQuery({
   queryKey: ["write_ups", route.params.slug],
   queryFn: async () => {
     const res = await $directus.request(
@@ -86,9 +90,49 @@ onMounted(() => {
     div.append(copy);
   });
 });
+
+const feedback_likes = ref(0);
+const feedback_exploding = ref(0);
+const feedback_fires = ref(0);
+const feedback_unicorns = ref(0);
+const feedback_rasied_hands = ref(0);
+
+watch(
+  () => write_ups.value,
+  () => {
+    if (write_ups.value) {
+      feedback_likes.value = write_ups.value?.feedback_likes ?? 0;
+      feedback_exploding.value = write_ups.value?.feedback_exploding ?? 0;
+      feedback_fires.value = write_ups.value?.feedback_fires ?? 0;
+      feedback_unicorns.value = write_ups.value?.feedback_unicorns ?? 0;
+      feedback_rasied_hands.value = write_ups.value?.feedback_rasied_hands ?? 0;
+    }
+  },
+  { immediate: true, deep: true },
+);
+
+// Add feedback
+const { mutate: addFeedback } = useMutation({
+  mutationFn: async (feedback: string) => {
+    return await $directus.request(
+      $updateItem("write_ups", write_ups.value?.id, {
+        feedback_likes: feedback === "like" ? feedback_likes.value : undefined,
+        feedback_exploding:
+          feedback === "exploding" ? feedback_exploding.value : undefined,
+        feedback_fires: feedback === "fire" ? feedback_fires.value : undefined,
+        feedback_unicorns:
+          feedback === "unicorn" ? feedback_unicorns.value : undefined,
+      }),
+    );
+  },
+  onSuccess: () => {
+    refetch();
+    console.log("Feedback added");
+  },
+});
 </script>
 <template>
-  <NuxtLayout :name="write_ups?.layout">
+  <NuxtLayout name="default">
     <main class="grid grid-cols-1 px-6 pt-8">
       <div class="max-w-[1200px] mx-auto w-full">
         <h1
@@ -160,11 +204,73 @@ onMounted(() => {
           />
         </div>
       </article>
+      <div
+        class="bg-white my-5 border-gpurple/10 border rounded-lg shadow-[0px_11px_50px_-15px_#E2E0F4] p-8"
+      >
+        <p>What do you think?</p>
+        <h4>How helpful was this article?</h4>
+        <div
+          class="flex flex-wrap gap-3 my-4 sm:flex-nowrap"
+          @click.once="addFeedback('like'), feedback_likes++"
+        >
+          <CommonToolTip>
+            <div class="feedback">
+              <Icon name="noto-v1:thumbs-up" class="text-2xl text-red-600" />
+              {{ feedback_likes ?? 0 }}
+            </div>
+            <template #content> Like </template>
+          </CommonToolTip>
+          <CommonToolTip>
+            <div
+              class="feedback"
+              @click.once="addFeedback('exploding'), feedback_exploding++"
+            >
+              <Icon name="noto:exploding-head" class="text-2xl text-red-600" />
+              {{ feedback_exploding ?? 0 }}
+            </div>
+            <template #content> Exploding Head </template>
+          </CommonToolTip>
+          <CommonToolTip>
+            <div
+              class="feedback"
+              @click.once="addFeedback('exploding'), feedback_exploding++"
+            >
+              <Icon name="noto:clapping-hands" class="text-2xl text-red-600" />
+              {{ feedback_rasied_hands ?? 0 }}
+            </div>
+            <template #content> Clapping Hands </template>
+          </CommonToolTip>
+          <CommonToolTip>
+            <div
+              class="feedback"
+              @click.once="addFeedback('fire'), feedback_fires++"
+            >
+              <Icon name="emojione:fire" class="text-2xl text-red-600" />
+              {{ feedback_fires ?? 0 }}
+            </div>
+            <template #content> Fire </template>
+          </CommonToolTip>
+          <CommonToolTip>
+            <div
+              class="feedback"
+              @click.once="addFeedback('rocket'), feedback_unicorns++"
+            >
+              <Icon name="fluent-emoji:rocket" class="text-2xl text-red-600" />
+              {{ feedback_unicorns ?? 0 }}
+            </div>
+            <template #content> Rocket </template>
+          </CommonToolTip>
+        </div>
+      </div>
     </main>
   </NuxtLayout>
 </template>
 <style>
 @import url("~/assets/css/theme.css");
+
+.feedback {
+  @apply flex gap-1 justify-center hover:border-gpurple/80 items-center w-full border border-gpurple/10 rounded-md p-2;
+}
 
 /* CSS hack to resize icons by targeting a hash string */
 img[src*="#icon"] {

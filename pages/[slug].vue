@@ -54,11 +54,7 @@ watch(
 );
 </script>
 <template>
-  <NuxtLayout
-    :name="page?.layout"
-    :title="page?.title"
-    :cover_image="page?.cover_image"
-  >
+  <NuxtLayout name="default">
     <main class="grid grid-cols-1 px-6 pt-8">
       <div class="max-w-[1200px] mx-auto w-full">
         <h1

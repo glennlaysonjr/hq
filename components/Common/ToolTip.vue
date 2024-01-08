@@ -18,7 +18,7 @@ const props = withDefaults(
 <template>
   <TooltipProvider :delay-duration="50">
     <TooltipRoot>
-      <TooltipTrigger>
+      <TooltipTrigger class="w-full">
         <slot />
       </TooltipTrigger>
       <TooltipContent
@@ -35,7 +35,7 @@ const props = withDefaults(
 </template>
 <style>
 .tooltippy {
-  @apply text-[10px] font-semibold text-ngreen bg-midnight py-2 px-4  rounded-full shadow-input;
+  @apply text-[10px] font-semibold text-white bg-gpurple py-2 px-4  rounded-full shadow-input;
 }
 .TooltipContent {
   animation-duration: 0.6s;
