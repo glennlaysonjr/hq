@@ -15,7 +15,10 @@ const showSearch = ref(false);
         class="flex items-center justify-between w-full h-full px-4 pt-6 pb-4"
       >
         <div class="">
-          <SystemLogo class="mt-2 w-18 text-[#1B006B]" />
+          <SystemLogo
+            class="mt-2 w-18 text-[#1B006B]"
+            @click="navigateTo('/')"
+          />
         </div>
         <div>
           <SystemNav />
