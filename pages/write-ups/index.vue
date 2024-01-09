@@ -44,6 +44,11 @@ const { data: write_ups, suspense } = useQuery({
           "tags.*",
           "tags.tags_id.*",
           "markdown",
+          "feedback_fires",
+          "feedback_unicorns",
+          "feedback_likes",
+          "feedback_raised_hands",
+          "feedback_exploding",
         ],
       }),
     );
