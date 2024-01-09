@@ -18,7 +18,16 @@ body {
   font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
-p {
+p,
+li,
+a,
+span,
+button,
+input,
+textarea,
+label,
+select,
+option {
   @apply text-sm font-medium;
   font-family: "M PLUS Rounded 1c", sans-serif;
 }

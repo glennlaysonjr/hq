@@ -65,7 +65,7 @@ watch(
       </div>
 
       <article
-        class="z-10 prose prose-h2:text-[2.5rem] prose-h2:leading-[2rem] sm:prose-h2:leading-[4rem] sm:prose-h2:text-[4rem] prose-h2:tracking-[-1px] sm:prose-h2:tracking-[-3px] prose-h3:text-2xl prose-h3:tracking-[-1px] prose-img:my-0 prose-p:mb-0 prose-blockquote:not-italic prose-hr:mb-5 px-6 sm:px-7 py-8 mt-0 prose-img:rounded-md max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
+        class="z-10 prose prose-h2:text-[2.5rem] prose-code:bg-black prose-code:rounded-md prose-code:font-light prose-code:text-white prose-code:px-2 prose-code:before:content-[''] prose-code:after:content-[''] prose-code:italic prose-h2:leading-[2rem] sm:prose-h2:leading-[4rem] sm:prose-h2:text-[4rem] prose-h2:tracking-[-1px] sm:prose-h2:tracking-[-3px] prose-h3:text-2xl prose-h3:tracking-[-1px] prose-img:my-0 prose-p:mb-0 prose-blockquote:not-italic prose-hr:mb-5 px-6 sm:px-7 py-8 mt-0 prose-img:rounded-md max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
         v-html="$mdRenderer.render(page?.markdown ?? '')"
       />
     </main>

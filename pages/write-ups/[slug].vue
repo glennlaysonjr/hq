@@ -136,7 +136,7 @@ const { mutate: addFeedback } = useMutation({
     <main class="grid grid-cols-1 px-6 pt-8">
       <div class="max-w-[1200px] mx-auto w-full">
         <h1
-          class="text-7xl leading-[4.5rem] sm:leading-[6rem] sm:text-[7rem] sm:tracking-[-10px] tracking-tight font-bold text-[#BAA7F5] hover:text-[#1B006B] transition-all ease-in-out duration-500 max-w-fit pb-0 sm:-mb-4 -mb-0 z-0 px-4"
+          class="text-7xl leading-[4.5rem] hyphens-auto sm:leading-[6rem] sm:text-[7rem] sm:tracking-[-10px] tracking-tight font-bold text-[#BAA7F5] hover:text-[#1B006B] transition-all ease-in-out duration-500 max-w-fit pb-0 sm:-mb-4 -mb-0 z-0 px-4"
         >
           {{ write_ups?.title }}
         </h1>
@@ -189,8 +189,8 @@ const { mutate: addFeedback } = useMutation({
         </p>
         <article
           id="content"
-          class="z-10 prose prose-h2:text-4xl sm:prose-h2:text-5xl prose-h2:mt-8 prose-h2:mb-3 prose-h2:tracking-[-2px] sm:prose-h2:tracking-[-3px] prose-h3:text-2xl prose-h3:tracking-[-1px] prose-img:my-0 prose-p:mb-0 prose-blockquote:not-italic prose-hr:mb-5 mt-0 prose-img:rounded-md max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
-          v-html="$mdRenderer.render(write_ups?.markdown)"
+          class="z-10 prose prose-h2:text-4xl prose-code:bg-black prose-code:rounded-md prose-code:font-light prose-code:text-white prose-code:px-2 prose-code:before:content-[''] prose-code:after:content-[''] prose-code:italic prose-li:text-base sm:prose-h2:text-5xl prose-h2:mt-8 prose-h2:mb-3 prose-h2:tracking-[-2px] sm:prose-h2:tracking-[-3px] prose-h3:text-2xl prose-h3:tracking-[-1px] prose-img:my-0 prose-p:mb-0 prose-blockquote:not-italic prose-hr:mb-5 mt-0 prose-img:rounded-md max-w-[1200px] bg-white rounded-t-3xl mx-auto w-full"
+          v-html="$mdRenderer.render(write_ups?.markdown ?? '')"
         />
         <div class="flex flex-row gap-2 mt-8">
           <h4 class="text-sm font-semibold">Share this write up:</h4>
@@ -215,7 +215,7 @@ const { mutate: addFeedback } = useMutation({
         >
           <CommonToolTip>
             <div class="feedback">
-              <Icon name="noto-v1:thumbs-up" class="text-2xl text-red-600" />
+              <Icon name="noto-v1:thumbs-up" class="text-2xl" />
               {{ feedback_likes ?? 0 }}
             </div>
             <template #content> Like </template>
@@ -225,7 +225,7 @@ const { mutate: addFeedback } = useMutation({
               class="feedback"
               @click.once="addFeedback('exploding'), feedback_exploding++"
             >
-              <Icon name="noto:exploding-head" class="text-2xl text-red-600" />
+              <Icon name="noto:exploding-head" class="text-2xl" />
               {{ feedback_exploding ?? 0 }}
             </div>
             <template #content> Exploding Head </template>
@@ -235,7 +235,7 @@ const { mutate: addFeedback } = useMutation({
               class="feedback"
               @click.once="addFeedback('exploding'), feedback_exploding++"
             >
-              <Icon name="noto:clapping-hands" class="text-2xl text-red-600" />
+              <Icon name="noto:clapping-hands" class="text-2xl" />
               {{ feedback_rasied_hands ?? 0 }}
             </div>
             <template #content> Clapping Hands </template>
@@ -245,7 +245,7 @@ const { mutate: addFeedback } = useMutation({
               class="feedback"
               @click.once="addFeedback('fire'), feedback_fires++"
             >
-              <Icon name="emojione:fire" class="text-2xl text-red-600" />
+              <Icon name="emojione:fire" class="text-2xl" />
               {{ feedback_fires ?? 0 }}
             </div>
             <template #content> Fire </template>
@@ -255,7 +255,7 @@ const { mutate: addFeedback } = useMutation({
               class="feedback"
               @click.once="addFeedback('rocket'), feedback_unicorns++"
             >
-              <Icon name="fluent-emoji:rocket" class="text-2xl text-red-600" />
+              <Icon name="fluent-emoji:rocket" class="text-2xl" />
               {{ feedback_unicorns ?? 0 }}
             </div>
             <template #content> Rocket </template>
