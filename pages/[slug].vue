@@ -52,6 +52,10 @@ watch(
   },
   { immediate: true, deep: true },
 );
+
+const testClick = () => {
+  console.log("test");
+};
 </script>
 <template>
   <NuxtLayout name="default">
