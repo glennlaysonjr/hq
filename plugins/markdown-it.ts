@@ -4,6 +4,7 @@ import md from "markdown-it";
 import markdownItAttrs from "markdown-it-attrs";
 import blockEmbedPlugin from "markdown-it-block-embed";
 import copyCode from "markdown-it-code-copy";
+import mermaidDiagram from "markdown-it-mermaid-plugin";
 import taskCheckbox from "markdown-it-task-checkbox";
 
 export default defineNuxtPlugin(() => {
@@ -33,7 +34,8 @@ export default defineNuxtPlugin(() => {
     })
     .use(componentPlugin, {
       // options
-    });
+    })
+    .use(mermaidDiagram);
 
   return {
     provide: {
